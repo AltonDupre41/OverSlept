@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Overslept"
+run/main_scene="res://src/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
