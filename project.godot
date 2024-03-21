@@ -19,3 +19,9 @@ config/icon="res://assets/icon.svg"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Objects"
+3d_physics/layer_3="Player"
