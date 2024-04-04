@@ -1,5 +1,9 @@
 extends Node2D
 
+#enum MOVEMENT{TANK, TURN}
+#@export var movementType = MOVEMENT
+@export_enum("TANK","TURN") var movementType:int
+
 @export_category("DEBUG")
 @export var startState: String 
 var gamestate_scene: PackedScene
