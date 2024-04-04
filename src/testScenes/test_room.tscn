@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://du6x8322e47hf"]
+[gd_scene load_steps=11 format=3 uid="uid://du6x8322e47hf"]
 
 [ext_resource type="PackedScene" uid="uid://bav60ddrf782i" path="res://src/testScenes/phys_cube.tscn" id="1_mkvec"]
-[ext_resource type="PackedScene" path="res://src/player.tscn" id="2_lll8r"]
+[ext_resource type="Script" path="res://src/testScenes/test_room.gd" id="1_w8c4o"]
+[ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_lll8r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eufd"]
 albedo_color = Color(0.729412, 1, 0.6, 1)
@@ -26,6 +27,9 @@ size = Vector3(2, 2, 2)
 data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
 
 [node name="TestRoom" type="Node3D"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+script = ExtResource("1_w8c4o")
+detected_test_good = Color(0.443137, 0.843137, 0.47451, 1)
 
 [node name="Room" type="Node3D" parent="."]
 
@@ -84,7 +88,7 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Cube3"]
 shape = SubResource("ConcavePolygonShape3D_1rqav")
 
-[node name="PhysCube" parent="Objects" groups=["FloorDetectable"] instance=ExtResource("1_mkvec")]
+[node name="PhysCube" parent="Objects" instance=ExtResource("1_mkvec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 1, 3)
 OVERIDE_ROOM_GRAVITY = true
 
@@ -106,3 +110,20 @@ ACCEL = 2.0
 DEACCEL = 8.0
 MAX_SPEED = 10.0
 JUMP_VELOCITY = 10.0
+
+[node name="Detect_Floor_Group" type="ColorRect" parent="."]
+offset_left = 65.0
+offset_top = 69.0
+offset_right = 137.0
+offset_bottom = 134.0
+color = Color(0.898039, 0.243137, 0.227451, 1)
+
+[node name="Label" type="Label" parent="Detect_Floor_Group"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = -45.0
+offset_right = 150.0
+offset_bottom = -22.0
+text = "Grouped Object Hit Ground"
+
+[connection signal="hit_ground" from="Objects/PhysCube2" to="." method="_on_phys_cube_2_hit_ground"]

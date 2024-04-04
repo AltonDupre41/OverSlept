@@ -37,6 +37,7 @@ func process_input(delta,input):
 	#gets the x and z value for the valocity
 	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
 	movement_dir = movement_dir.normalized()
+	movement_dir.rotated(movement_dir.normalized(),deg_to_rad(45))
 	velocity.x = movement_dir.x
 	velocity.z = movement_dir.z
 	

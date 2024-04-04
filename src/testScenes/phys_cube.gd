@@ -31,5 +31,6 @@ func _on_body_entered(body):
 		print("A FloorDetectable object has hit the ground.")
 		emit_signal("hit_ground", self)
 		# Disconnect the signal after the first ground hit to stop detecting further hits
+		await get_tree().process_frame
 		disconnect("body_entered", Callable(self, "_on_body_entered"))
 

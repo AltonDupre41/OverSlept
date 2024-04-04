@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds1k1qkuo2klt"]
+[gd_scene load_steps=9 format=3 uid="uid://ds1k1qkuo2klt"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_hahoo"]
+[ext_resource type="Script" path="res://src/player.gd" id="1_hahoo"]
+[ext_resource type="Script" path="res://src/Tail.gd" id="2_w0xh6"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_ykmm2"]
+size = Vector3(1, 1, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiyvb"]
 albedo_color = Color(0.360784, 1, 1, 1)
@@ -12,13 +16,32 @@ height = 2.5
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lic2g"]
 height = 2.5
 
-[node name="player" type="CharacterBody3D"]
+[sub_resource type="SphereMesh" id="SphereMesh_4s3um"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d0o7d"]
+
+[node name="player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_hahoo")
+
+[node name="FaceDecal" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.6, 0.7, 0)
+mesh = SubResource("PrismMesh_ykmm2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_0u77y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lic2g")
+
+[node name="Tail" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.5, 0)
+axis_lock_linear_y = true
+script = ExtResource("2_w0xh6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tail"]
+mesh = SubResource("SphereMesh_4s3um")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tail"]
+shape = SubResource("SphereShape3D_d0o7d")
