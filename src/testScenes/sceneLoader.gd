@@ -11,5 +11,10 @@ func _process(delta):
 	pass
 
 
-func _on_pressed():
-	get_tree().change_scene_to_file("res://src/testScenes/test_room.tscn")
+func _on_pressed(num):
+	match num:
+		0:
+			get_tree().root.get_child(0).changeState("res://src/Levels/level_1.tscn")
+		1:
+			get_tree().root.get_child(0).changeState()
+

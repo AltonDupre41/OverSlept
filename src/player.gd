@@ -32,7 +32,7 @@ func _ready():
 
 func _physics_process(delta):
 	previous_rot = $Mesh.rotation
-	var input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_vector = Input.get_vector("left", "right", "up", "down")
 	process_input(delta, input_vector)
 	process_turn_input(delta)
 	process_collision(input_vector)
@@ -67,7 +67,7 @@ func process_input(delta,input):
 	velocity.z = hvel.z
 	
 	move_and_slide()
-	if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
+	if is_on_floor() and Input.is_action_just_pressed("accept"):
 		velocity.y = JUMP_VELOCITY
 
 #processing pushing objects
@@ -82,9 +82,13 @@ func process_turn_input(delta):
 		MOVEMENT.TANK:
 			pass
 		MOVEMENT.TURN:
-			var input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+			var input_vector = Input.get_vector("left", "right", "up", "down")
 			if abs(input_vector) != Vector2.ZERO:
 				var setAngle = atan2(velocity.x,velocity.z) - deg_to_rad(45)
 				$Mesh.rotation.y = lerp_angle($Mesh.rotation.y, setAngle, delta * rotSpeed)
 				ROTATING = true
+
+func get_input():
+	var input_vector = Input.get_vector("left", "right", "up", "down")
+	return input_vector
 

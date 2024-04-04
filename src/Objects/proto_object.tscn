@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwq8dsh0yq1p7"]
+
+[ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_u3a61"]
+[ext_resource type="Script" path="res://src/Objects/protoCube.gd" id="2_l2oxa"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b1vxc"]
+points = PackedVector3Array(1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rptcx"]
+albedo_color = Color(0.607843, 0.0941176, 0.25098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_70mc2"]
+material = SubResource("StandardMaterial3D_rptcx")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bchbn"]
+albedo_color = Color(0.176471, 1, 0.964706, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_63dvv"]
+material = SubResource("StandardMaterial3D_bchbn")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37n7j"]
+albedo_color = Color(0.713726, 0, 0.623529, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_uea56"]
+material = SubResource("StandardMaterial3D_37n7j")
+text = "ඞ"
+font_size = 127
+pixel_size = 0.02
+
+[node name="PhysCube" type="RigidBody3D" groups=["FloorDetectable"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_u3a61")
+OVERIDE_ROOM_GRAVITY = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_b1vxc")
+script = ExtResource("2_l2oxa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_70mc2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PrismMesh_63dvv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("TextMesh_uea56")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
