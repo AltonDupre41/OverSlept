@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1pe0j77nrvll"]
+
+[ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_itewp"]
+[ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_6ayba"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eufd"]
+albedo_color = Color(0.729412, 1, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f7pwf"]
+material = SubResource("StandardMaterial3D_0eufd")
+size = Vector3(24, 1, 24)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6s3xw"]
+data = PackedVector3Array(-12, 0.5, 12, 12, 0.5, 12, -12, -0.5, 12, 12, 0.5, 12, 12, -0.5, 12, -12, -0.5, 12, 12, 0.5, -12, -12, 0.5, -12, 12, -0.5, -12, -12, 0.5, -12, -12, -0.5, -12, 12, -0.5, -12, 12, 0.5, 12, 12, 0.5, -12, 12, -0.5, 12, 12, 0.5, -12, 12, -0.5, -12, 12, -0.5, 12, -12, 0.5, -12, -12, 0.5, 12, -12, -0.5, -12, -12, 0.5, 12, -12, -0.5, 12, -12, -0.5, -12, 12, 0.5, 12, -12, 0.5, 12, 12, 0.5, -12, -12, 0.5, 12, -12, 0.5, -12, 12, 0.5, -12, -12, -0.5, 12, 12, -0.5, 12, -12, -0.5, -12, 12, -0.5, 12, 12, -0.5, -12, -12, -0.5, -12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xbayi"]
+size = Vector3(25, 16, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u56kt"]
+points = PackedVector3Array(12.5, 8, 0.5, 12.5, 8, -0.5, -12.5, 8, 0.5, 12.5, -8, 0.5, 12.5, -8, -0.5, -12.5, 8, -0.5, -12.5, -8, 0.5, -12.5, -8, -0.5)
+
+[node name="level_2" type="Node3D"]
+script = ExtResource("1_itewp")
+
+[node name="Room" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Room" groups=["ground"]]
+collision_mask = 6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_f7pwf")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("ConcavePolygonShape3D_6s3xw")
+
+[node name="Floor2" type="StaticBody3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.9, 0)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("ConcavePolygonShape3D_6s3xw")
+
+[node name="Walls" type="Node3D" parent="Room"]
+
+[node name="Wall1" type="StaticBody3D" parent="Room/Walls"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Walls/Wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+mesh = SubResource("BoxMesh_xbayi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+shape = SubResource("ConvexPolygonShape3D_u56kt")
+
+[node name="Wall2" type="StaticBody3D" parent="Room/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Walls/Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+mesh = SubResource("BoxMesh_xbayi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+shape = SubResource("ConvexPolygonShape3D_u56kt")
+
+[node name="Wall3" type="StaticBody3D" parent="Room/Walls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+shape = SubResource("ConvexPolygonShape3D_u56kt")
+
+[node name="Wall4" type="StaticBody3D" parent="Room/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+shape = SubResource("ConvexPolygonShape3D_u56kt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Room"]
+transform = Transform3D(1, 0, -5.63646e-16, 1.77636e-15, 0.948324, 0.317305, 0, -0.317305, 0.948324, 12, 5, -12)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.298836, 0.640857, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640857, 25, 18, 25)
+projection = 1
+size = 15.0
+near = 1.0
+far = 100.0
+
+[node name="player" parent="." instance=ExtResource("2_6ayba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, 1.8, 8.7)
+OVERIDE_ROOM_GRAVITY = true
+ACCEL = 3.0
+MAX_SPEED = 12.0
+push_FORCE = 0.1
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Items Dropped: 0"

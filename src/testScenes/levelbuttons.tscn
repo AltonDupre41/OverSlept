@@ -1,24 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlh8hk03c56sb"]
+[gd_scene load_steps=4 format=3 uid="uid://dlh8hk03c56sb"]
 
 [ext_resource type="Script" path="res://src/testScenes/sceneLoader.gd" id="1_jgttg"]
+[ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="2_diedi"]
 
-[node name="levelButtons" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 897.0
-offset_bottom = 486.0
+[sub_resource type="SystemFont" id="SystemFont_qyjh7"]
+
+[node name="levelButtons" type="VBoxContainer"]
+offset_right = 1149.0
+offset_bottom = 646.0
+alignment = 1
 script = ExtResource("1_jgttg")
 
 [node name="Button" type="Button" parent="."]
-offset_right = 114.0
-offset_bottom = 78.0
+layout_mode = 2
 text = "Level 1"
 
 [node name="Button2" type="Button" parent="."]
 visible = false
-offset_left = 141.0
-offset_right = 295.0
-offset_bottom = 83.0
+layout_mode = 2
+text = "Level 2"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_diedi")
+theme_override_fonts/font = SubResource("SystemFont_qyjh7")
+theme_override_font_sizes/font_size = 18
+text = "Lizard has just been woken up by their alarm clock to find that they are late for class
+Reach all the red markers to prepare for class without knocking over all the small objects in the house"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_pressed" binds= [0]]
-[connection signal="pressed" from="Button2" to="." method="_on_pressed" binds= [1]]
+[connection signal="pressed" from="Button2" to="." method="_on_pressed" binds= [2]]

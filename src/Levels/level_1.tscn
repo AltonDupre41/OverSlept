@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3x7h7jtx50h3"]
+[gd_scene load_steps=25 format=3 uid="uid://d3x7h7jtx50h3"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_tvk1w"]
 [ext_resource type="PackedScene" uid="uid://16dfbpicy2ia" path="res://src/Objects/pole.tscn" id="2_q6kic"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_qakhs"]
 [ext_resource type="PackedScene" uid="uid://dwq8dsh0yq1p7" path="res://src/Objects/proto_object.tscn" id="3_e40ih"]
+[ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="5_7iu2a"]
+[ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="6_yb73n"]
+[ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="7_hefr7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eufd"]
 albedo_color = Color(0.729412, 1, 0.6, 1)
@@ -15,17 +18,78 @@ size = Vector3(24, 1, 24)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kh7a2"]
 data = PackedVector3Array(-12, 0.5, 12, 12, 0.5, 12, -12, -0.5, 12, 12, 0.5, 12, 12, -0.5, 12, -12, -0.5, 12, 12, 0.5, -12, -12, 0.5, -12, 12, -0.5, -12, -12, 0.5, -12, -12, -0.5, -12, 12, -0.5, -12, 12, 0.5, 12, 12, 0.5, -12, 12, -0.5, 12, 12, 0.5, -12, 12, -0.5, -12, 12, -0.5, 12, -12, 0.5, -12, -12, 0.5, 12, -12, -0.5, -12, -12, 0.5, 12, -12, -0.5, 12, -12, -0.5, -12, 12, 0.5, 12, -12, 0.5, 12, 12, 0.5, -12, -12, 0.5, 12, -12, 0.5, -12, 12, 0.5, -12, -12, -0.5, 12, 12, -0.5, 12, -12, -0.5, -12, 12, -0.5, 12, 12, -0.5, -12, -12, -0.5, -12)
 
-[sub_resource type="BoxMesh" id="BoxMesh_a3mo1"]
-size = Vector3(25, 16, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_g6dhq"]
+size = Vector3(25, 8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b018y"]
+size = Vector3(20, 8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfybh"]
+albedo_color = Color(0.576471, 0.368627, 0.196078, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l2wrq"]
+material = SubResource("StandardMaterial3D_qfybh")
+size = Vector3(5, 6, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xejm4"]
 points = PackedVector3Array(12.5, 8, 0.5, 12.5, 8, -0.5, -12.5, 8, 0.5, 12.5, -8, 0.5, 12.5, -8, -0.5, -12.5, 8, -0.5, -12.5, -8, 0.5, -12.5, -8, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a3mo1"]
+size = Vector3(25, 16, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3kq4k"]
 size = Vector3(4, 2, 8)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1rvtk"]
 points = PackedVector3Array(2, 1, 4, 2, -1, 4, 2, 1, -4, -2, 1, 4, -2, -1, 4, 2, -1, -4, -2, 1, -4, -2, -1, -4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf45h"]
+transparency = 1
+albedo_color = Color(0.976471, 0.392157, 0.517647, 0.74902)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1a7bv"]
+material = SubResource("StandardMaterial3D_kf45h")
+size = Vector3(4, 1, 4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i25d5"]
+points = PackedVector3Array(-2, -0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, -0.5, 2, -2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, 2)
+
+[sub_resource type="Animation" id="Animation_rijfx"]
+resource_name = "appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0d3yn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4btvq"]
+_data = {
+"RESET": SubResource("Animation_0d3yn"),
+"appear": SubResource("Animation_rijfx")
+}
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_tvk1w")
@@ -57,8 +121,16 @@ shape = SubResource("ConcavePolygonShape3D_kh7a2")
 [node name="Wall1" type="StaticBody3D" parent="Room/Walls"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Walls/Wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
-mesh = SubResource("BoxMesh_a3mo1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.9, -12.5)
+mesh = SubResource("BoxMesh_g6dhq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Room/Walls/Wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 2.6, -12.5)
+mesh = SubResource("BoxMesh_b018y")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Room/Walls/Wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1, 2.9, -12.5)
+mesh = SubResource("BoxMesh_l2wrq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
@@ -104,7 +176,7 @@ collision_mask = 7
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/Cube1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.3, 0)
 mesh = SubResource("BoxMesh_3kq4k")
-skeleton = NodePath("../../../Score")
+skeleton = NodePath("../../../UI/Score")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Cube1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.3, 0)
@@ -142,6 +214,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2, 3.1, -3.3)
 [node name="PhysCube7" parent="Objects" instance=ExtResource("3_e40ih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2, 3.1, -5.8)
 
+[node name="Tasks" type="Node3D" parent="."]
+
+[node name="Task1" type="Area3D" parent="Tasks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.503, 0.5, 2.901)
+visible = false
+collision_layer = 8
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tasks/Task1"]
+mesh = SubResource("BoxMesh_1a7bv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tasks/Task1"]
+shape = SubResource("ConvexPolygonShape3D_i25d5")
+
+[node name="Task2" type="Area3D" parent="Tasks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7, 0.5, -2.9)
+visible = false
+collision_layer = 8
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tasks/Task2"]
+mesh = SubResource("BoxMesh_1a7bv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tasks/Task2"]
+shape = SubResource("ConvexPolygonShape3D_i25d5")
+
+[node name="Task3" type="Area3D" parent="Tasks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7, 0.5, -9.8)
+visible = false
+collision_layer = 8
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tasks/Task3"]
+mesh = SubResource("BoxMesh_1a7bv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tasks/Task3"]
+shape = SubResource("ConvexPolygonShape3D_i25d5")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, -0.298836, 0.640857, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640857, 25, 18, 25)
 projection = 1
@@ -151,15 +261,93 @@ far = 100.0
 
 [node name="player" parent="." instance=ExtResource("2_qakhs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, 1.8, 8.7)
+collision_mask = 11
 OVERIDE_ROOM_GRAVITY = true
 ACCEL = 3.0
 MAX_SPEED = 12.0
 push_FORCE = 0.1
 
-[node name="Score" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="UI" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+
+[node name="Container" type="Control" parent="UI"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Complete" type="Label" parent="UI"]
+layout_mode = 2
+theme = ExtResource("5_7iu2a")
+text = "You Win"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="UI"]
+visible = false
+layout_mode = 2
+theme = ExtResource("5_7iu2a")
 text = "Items Dropped: 0"
+horizontal_alignment = 1
+
+[node name="Suspense" type="Timer" parent="UI/Score"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Suspense2" type="Timer" parent="UI/Score"]
+wait_time = 0.5
+one_shot = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 2
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+texture = ExtResource("6_yb73n")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+texture = ExtResource("6_yb73n")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star3" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+texture = ExtResource("6_yb73n")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_hefr7")
+theme_override_font_sizes/font_size = 32
+text = "Press Start to Return To Menu"
+
+[node name="CompleteAnim" type="AnimationPlayer" parent="UI"]
+root_node = NodePath("../Complete")
+libraries = {
+"": SubResource("AnimationLibrary_4btvq")
+}
+
+[node name="TaskWait" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="hit_ground" from="Objects/PhysCube" to="." method="_on_object_hit_ground"]
 [connection signal="hit_ground" from="Objects/PhysCube2" to="." method="_on_object_hit_ground"]
@@ -168,3 +356,10 @@ text = "Items Dropped: 0"
 [connection signal="hit_ground" from="Objects/PhysCube5" to="." method="_on_object_hit_ground"]
 [connection signal="hit_ground" from="Objects/PhysCube6" to="." method="_on_object_hit_ground"]
 [connection signal="hit_ground" from="Objects/PhysCube7" to="." method="_on_object_hit_ground"]
+[connection signal="body_entered" from="Tasks/Task1" to="." method="_on_task_body_entered"]
+[connection signal="body_entered" from="Tasks/Task2" to="." method="_on_task_body_entered"]
+[connection signal="body_entered" from="Tasks/Task3" to="." method="_on_task_body_entered"]
+[connection signal="timeout" from="UI/Score/Suspense" to="." method="calculate_score"]
+[connection signal="timeout" from="UI/Score/Suspense2" to="." method="set_score"]
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="animation_finished" from="UI/CompleteAnim" to="." method="_on_complete_anim_animation_finished"]
