@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0glcf0bx7ffe"]
+
+[ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_6n1eq"]
+[ext_resource type="ArrayMesh" uid="uid://dokabo0f0dxac" path="res://assets/Models/sidetableobj.obj" id="2_5f2vb"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fn8fp"]
+height = 5.01629
+radius = 1.71492
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqa0l"]
+size = Vector3(3.17586, 1.04358, 3.33496)
+
+[node name="TableObject" type="RigidBody3D" node_paths=PackedStringArray("floorDetectNode") groups=["FloorDetectable"]]
+script = ExtResource("1_6n1eq")
+OVERIDE_ROOM_GRAVITY = true
+floorDetectNode = NodePath("Area3D")
+
+[node name="Sidetableobj" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.1, 8.74228e-09, 0, -8.74228e-09, -0.1, 0, 0, 0, 0.1, 0, 3.8, 0)
+mesh = ExtResource("2_5f2vb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132299, 1.29431, 0)
+shape = SubResource("CylinderShape3D_fn8fp")
+
+[node name="Area3D" type="Area3D" parent="." groups=["FloorDetectable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.240501, 3.66473, 0.0581055)
+shape = SubResource("BoxShape3D_kqa0l")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]

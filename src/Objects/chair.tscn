@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3g4bm1iuajhf"]
+
+[ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_78ann"]
+[ext_resource type="ArrayMesh" uid="uid://1xy30mq6or7s" path="res://assets/Models/chairobj.obj" id="2_v52do"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uu4jy"]
+size = Vector3(1.13916, 2.39087, 1.10547)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihsrx"]
+size = Vector3(1, 0.870728, 1.24536)
+
+[node name="Chair" type="RigidBody3D" node_paths=PackedStringArray("floorDetectNode") groups=["FloorDetectable"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_78ann")
+OVERIDE_ROOM_GRAVITY = true
+floorDetectNode = NodePath("Area3D")
+
+[node name="Chairobj" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.1224, -5.50453, 1.93513)
+mesh = ExtResource("2_v52do")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0695801, 1.13611, -0.0527344)
+shape = SubResource("BoxShape3D_uu4jy")
+
+[node name="Area3D" type="Area3D" parent="." groups=["FloorDetectable"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30615, -0.0281982)
+shape = SubResource("BoxShape3D_ihsrx")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]

@@ -41,10 +41,12 @@ func _process(delta):
 		$UI/Score.text = str("Items Dropped: ", (randi()%100) + 1)
 
 func _on_object_hit_ground(object):
-	items_dropped += 1
-	if rampage && items_dropped == rampage_goal:
-		stopwatch = false
-		_on_level_complete()
+	if object.is_in_group("FloorDetectable"):
+		items_dropped += 1
+		object.remove_from_group("FloorDetectable")
+		if rampage && items_dropped == rampage_goal:
+			stopwatch = false
+			_on_level_complete()
 
 func _on_task_body_entered(body):
 	if body.is_in_group("player") && $TaskWait.is_stopped():

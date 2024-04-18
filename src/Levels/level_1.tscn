@@ -44,12 +44,12 @@ size = Vector3(4, 2, 8)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1rvtk"]
 points = PackedVector3Array(2, 1, 4, 2, -1, 4, 2, 1, -4, -2, 1, 4, -2, -1, 4, 2, -1, -4, -2, 1, -4, -2, -1, -4)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf45h"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7y3t"]
 transparency = 1
 albedo_color = Color(0.976471, 0.392157, 0.517647, 0.74902)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1a7bv"]
-material = SubResource("StandardMaterial3D_kf45h")
+material = SubResource("StandardMaterial3D_g7y3t")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i25d5"]

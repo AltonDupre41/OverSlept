@@ -6,6 +6,7 @@ signal hit_ground
 @export var OVERIDE_ROOM_GRAVITY = false
 @export var has_GRAVITY = true
 @export var can_MOVE = true
+@export var floorDetectNode:Node
 
 #The default gravity ive set for objects, 9.8 specifically because its the gravity of the earth
 var GRAVITY = -9.8
@@ -27,10 +28,10 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.is_in_group("ground"): # ground objects are in a 'ground' group like the "Floor"
+	if body.is_in_group("ground") && floorDetectNode != null: # ground objects are in a 'ground' group like the "Floor"
 		print("A FloorDetectable object has hit the ground.")
 		emit_signal("hit_ground", self)
 		# Disconnect the signal after the first ground hit to stop detecting further hits
 		await get_tree().process_frame
-		disconnect("body_entered", Callable(self, "_on_body_entered"))
+		floorDetectNode.disconnect("body_entered", Callable(self, "_on_body_entered"))
 
