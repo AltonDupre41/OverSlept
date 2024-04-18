@@ -1,27 +1,169 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlh8hk03c56sb"]
+[gd_scene load_steps=7 format=3 uid="uid://dlh8hk03c56sb"]
 
 [ext_resource type="Script" path="res://src/testScenes/sceneLoader.gd" id="1_jgttg"]
+[ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="2_28akw"]
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="2_diedi"]
+
+[sub_resource type="SystemFont" id="SystemFont_mdpac"]
 
 [sub_resource type="SystemFont" id="SystemFont_qyjh7"]
 
-[node name="levelButtons" type="VBoxContainer"]
+[sub_resource type="SystemFont" id="SystemFont_dmki2"]
+
+[node name="levelButtons" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1149.0
 offset_bottom = 646.0
-alignment = 1
 script = ExtResource("1_jgttg")
 
-[node name="Button" type="Button" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 125.0
+offset_top = 117.0
+offset_right = -133.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 100
+columns = 2
+
+[node name="BEDROOM" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 text = "Level 1"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Name" type="Label" parent="GridContainer/BEDROOM"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 125.0
+offset_right = 101.0
+offset_bottom = 151.0
+theme_override_fonts/font = SubResource("SystemFont_mdpac")
+theme_override_font_sizes/font_size = 18
+text = "Bedroom"
+horizontal_alignment = 1
+
+[node name="Stars" type="HBoxContainer" parent="GridContainer/BEDROOM"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.277
+offset_left = -9.76
+offset_top = 158.0
+offset_right = 157.0
+offset_bottom = 222.0
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="GridContainer/BEDROOM/Stars"]
 visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="GridContainer/BEDROOM/Stars"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star3" type="TextureRect" parent="GridContainer/BEDROOM/Stars"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Rampage" type="CheckBox" parent="GridContainer/BEDROOM"]
+visible = false
+layout_mode = 0
+offset_top = 236.0
+offset_right = 122.0
+offset_bottom = 284.0
+text = "Rampage"
+
+[node name="KITCHEN" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 text = "Level 2"
 
-[node name="Label" type="Label" parent="."]
+[node name="Name" type="Label" parent="GridContainer/KITCHEN"]
+offset_left = 16.0
+offset_top = 125.0
+offset_right = 101.0
+offset_bottom = 151.0
+theme_override_fonts/font = SubResource("SystemFont_mdpac")
+theme_override_font_sizes/font_size = 18
+text = "Kitchen"
+horizontal_alignment = 1
+
+[node name="Stars" type="HBoxContainer" parent="GridContainer/KITCHEN"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.277
+offset_left = -9.76
+offset_top = 158.0
+offset_right = 157.0
+offset_bottom = 222.0
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="GridContainer/KITCHEN/Stars"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="GridContainer/KITCHEN/Stars"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star3" type="TextureRect" parent="GridContainer/KITCHEN/Stars"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Rampage" type="CheckBox" parent="GridContainer/KITCHEN"]
+visible = false
+offset_top = 236.0
+offset_right = 122.0
+offset_bottom = 284.0
+text = "Rampage"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -139.0
+offset_right = 442.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("2_diedi")
 theme_override_fonts/font = SubResource("SystemFont_qyjh7")
 theme_override_font_sizes/font_size = 18
@@ -29,5 +171,24 @@ text = "Lizard has just been woken up by their alarm clock to find that they are
 Reach all the red markers to prepare for class without knocking over all the small objects in the house"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="Button" to="." method="_on_pressed" binds= [0]]
-[connection signal="pressed" from="Button2" to="." method="_on_pressed" binds= [2]]
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -55.0
+offset_right = 442.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_diedi")
+theme_override_fonts/font = SubResource("SystemFont_dmki2")
+theme_override_font_sizes/font_size = 18
+text = "To move use the lefft analog stick or W,A,S,D. Select the level with the mouse. 
+To return to here press ENTER or Start on your controler"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="GridContainer/BEDROOM" to="." method="_on_pressed" binds= [0]]
+[connection signal="pressed" from="GridContainer/KITCHEN" to="." method="_on_pressed" binds= [1]]

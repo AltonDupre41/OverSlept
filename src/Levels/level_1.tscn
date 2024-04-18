@@ -54,6 +54,21 @@ size = Vector3(4, 1, 4)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i25d5"]
 points = PackedVector3Array(-2, -0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, -0.5, 2, -2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, 2)
 
+[sub_resource type="Animation" id="Animation_0d3yn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_rijfx"]
 resource_name = "appear"
 length = 0.5
@@ -70,21 +85,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_0d3yn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4btvq"]
 _data = {
 "RESET": SubResource("Animation_0d3yn"),
@@ -93,6 +93,7 @@ _data = {
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_tvk1w")
+level_name = "BEDROOM"
 
 [node name="Room" type="Node3D" parent="."]
 
@@ -287,7 +288,6 @@ text = "You Win"
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="UI"]
-visible = false
 layout_mode = 2
 theme = ExtResource("5_7iu2a")
 text = "Items Dropped: 0"
@@ -300,6 +300,16 @@ one_shot = true
 [node name="Suspense2" type="Timer" parent="UI/Score"]
 wait_time = 0.5
 one_shot = true
+
+[node name="Container2" type="Control" parent="UI"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Complete2" type="Label" parent="UI"]
+layout_mode = 2
+theme = ExtResource("5_7iu2a")
+text = "Rampage Mode Unlocked"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 layout_mode = 2

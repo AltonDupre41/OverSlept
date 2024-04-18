@@ -2,8 +2,10 @@ extends Node3D
 
 var items_dropped = 0
 var tasks = []
+var stars = 0
 @export var highscore:int = 1
 @export var lowscore:int = 6
+@export var level_name = ""
 
 func _ready():
 	rotation.y = deg_to_rad(-45)
@@ -45,11 +47,16 @@ func _on_complete_anim_animation_finished(anim_name):
 
 func set_score():
 	$UI/HBoxContainer/Star1.show()
+	stars += 1
 	if items_dropped <= lowscore:
 		$UI/HBoxContainer/Star2.show()
+		stars += 1
 		if items_dropped <= highscore:
 			$UI/HBoxContainer/Star3.show()
+			stars += 1
 	$UI/Button.show()
+	get_tree().root.get_child(0).LEVEL_DATA[level_name]["rampage"] = true
+	get_tree().root.get_child(0).LEVEL_DATA[level_name]["score"] = stars
 
 func _on_button_pressed():
 	get_parent().changeState("res://src/testScenes/levelbuttons.tscn")

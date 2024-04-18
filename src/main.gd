@@ -1,5 +1,18 @@
 extends Node2D
 
+var LEVEL_DATA = {
+	"BEDROOM":{
+		"rampage":false,
+		"score":0,
+		"ramscore":0
+	},
+	"KITCHEN":{
+		"rampage":false,
+		"score":0,
+		"ramscore":0
+	},
+}
+
 #enum MOVEMENT{TANK, TURN}
 #@export var movementType = MOVEMENT
 @export_enum("TANK","TURN") var movementType:int
