@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3x7h7jtx50h3"]
+[gd_scene load_steps=26 format=3 uid="uid://d3x7h7jtx50h3"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_tvk1w"]
 [ext_resource type="PackedScene" uid="uid://16dfbpicy2ia" path="res://src/Objects/pole.tscn" id="2_q6kic"]
@@ -90,6 +90,8 @@ _data = {
 "RESET": SubResource("Animation_0d3yn"),
 "appear": SubResource("Animation_rijfx")
 }
+
+[sub_resource type="SystemFont" id="SystemFont_0ciix"]
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_tvk1w")
@@ -358,6 +360,19 @@ libraries = {
 
 [node name="TaskWait" type="Timer" parent="."]
 one_shot = true
+
+[node name="Stopwatch" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_right = 63.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("SystemFont_0ciix")
+theme_override_font_sizes/font_size = 32
+text = "00:00.00"
 
 [connection signal="hit_ground" from="Objects/PhysCube" to="." method="_on_object_hit_ground"]
 [connection signal="hit_ground" from="Objects/PhysCube2" to="." method="_on_object_hit_ground"]

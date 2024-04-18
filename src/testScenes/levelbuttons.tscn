@@ -34,6 +34,10 @@ columns = 2
 [node name="BEDROOM" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
+focus_neighbor_left = NodePath("../KITCHEN")
+focus_neighbor_top = NodePath("Rampage")
+focus_neighbor_right = NodePath("../KITCHEN")
+focus_neighbor_bottom = NodePath("Rampage")
 text = "Level 1"
 
 [node name="Name" type="Label" parent="GridContainer/BEDROOM"]
@@ -84,7 +88,7 @@ texture = ExtResource("2_28akw")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Rampage" type="CheckBox" parent="GridContainer/BEDROOM"]
+[node name="Rampage" type="Button" parent="GridContainer/BEDROOM"]
 visible = false
 layout_mode = 0
 offset_top = 236.0
@@ -95,9 +99,14 @@ text = "Rampage"
 [node name="KITCHEN" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
+focus_neighbor_left = NodePath("../BEDROOM")
+focus_neighbor_top = NodePath("Rampage")
+focus_neighbor_right = NodePath("../BEDROOM")
+focus_neighbor_bottom = NodePath("Rampage")
 text = "Level 2"
 
 [node name="Name" type="Label" parent="GridContainer/KITCHEN"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 125.0
 offset_right = 101.0
@@ -144,8 +153,9 @@ texture = ExtResource("2_28akw")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Rampage" type="CheckBox" parent="GridContainer/KITCHEN"]
+[node name="Rampage" type="Button" parent="GridContainer/KITCHEN"]
 visible = false
+layout_mode = 0
 offset_top = 236.0
 offset_right = 122.0
 offset_bottom = 284.0
@@ -191,4 +201,6 @@ To return to here press ENTER or Start on your controler"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="GridContainer/BEDROOM" to="." method="_on_pressed" binds= [0]]
+[connection signal="pressed" from="GridContainer/BEDROOM/Rampage" to="." method="_on_pressed" binds= [0, true]]
 [connection signal="pressed" from="GridContainer/KITCHEN" to="." method="_on_pressed" binds= [1]]
+[connection signal="pressed" from="GridContainer/KITCHEN/Rampage" to="." method="_on_pressed" binds= [1, true]]

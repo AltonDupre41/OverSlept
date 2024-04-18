@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1pe0j77nrvll"]
+[gd_scene load_steps=15 format=3 uid="uid://d1pe0j77nrvll"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_itewp"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_6ayba"]
+[ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="3_dcu2s"]
+[ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="4_ogck7"]
+[ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="5_2h3aq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eufd"]
 albedo_color = Color(0.729412, 1, 0.6, 1)
@@ -18,6 +21,45 @@ size = Vector3(25, 16, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u56kt"]
 points = PackedVector3Array(12.5, 8, 0.5, 12.5, 8, -0.5, -12.5, 8, 0.5, 12.5, -8, 0.5, 12.5, -8, -0.5, -12.5, 8, -0.5, -12.5, -8, 0.5, -12.5, -8, -0.5)
+
+[sub_resource type="Animation" id="Animation_0d3yn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rijfx"]
+resource_name = "appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4btvq"]
+_data = {
+"RESET": SubResource("Animation_0d3yn"),
+"appear": SubResource("Animation_rijfx")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_3o64n"]
 
 [node name="level_2" type="Node3D"]
 script = ExtResource("1_itewp")
@@ -87,6 +129,10 @@ transform = Transform3D(1, 0, -5.63646e-16, 1.77636e-15, 0.948324, 0.317305, 0, 
 light_energy = 0.5
 shadow_enabled = true
 
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Tasks" type="Node3D" parent="."]
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, -0.298836, 0.640857, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640857, 25, 18, 25)
 projection = 1
@@ -101,7 +147,106 @@ ACCEL = 3.0
 MAX_SPEED = 12.0
 push_FORCE = 0.1
 
-[node name="Score" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="UI" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+
+[node name="Container" type="Control" parent="UI"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Complete" type="Label" parent="UI"]
+layout_mode = 2
+theme = ExtResource("3_dcu2s")
+text = "You Win"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="UI"]
+layout_mode = 2
+theme = ExtResource("3_dcu2s")
 text = "Items Dropped: 0"
+horizontal_alignment = 1
+
+[node name="Suspense" type="Timer" parent="UI/Score"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Suspense2" type="Timer" parent="UI/Score"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Container2" type="Control" parent="UI"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Complete2" type="Label" parent="UI"]
+layout_mode = 2
+theme = ExtResource("3_dcu2s")
+text = "Rampage Mode Unlocked"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 2
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+texture = ExtResource("4_ogck7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+texture = ExtResource("4_ogck7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star3" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+texture = ExtResource("4_ogck7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_2h3aq")
+theme_override_font_sizes/font_size = 32
+text = "Press Start to Return To Menu"
+
+[node name="CompleteAnim" type="AnimationPlayer" parent="UI"]
+root_node = NodePath("../Complete")
+libraries = {
+"": SubResource("AnimationLibrary_4btvq")
+}
+
+[node name="TaskWait" type="Timer" parent="."]
+one_shot = true
+
+[node name="Stopwatch" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_right = 63.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("SystemFont_3o64n")
+theme_override_font_sizes/font_size = 32
+text = "00:00.00"

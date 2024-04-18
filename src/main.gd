@@ -22,11 +22,12 @@ var LEVEL_DATA = {
 var gamestate_scene: PackedScene
 var GAMESTATE
 
-func changeState(path):
+func changeState(path,rampage = false):
 	if get_child_count() > 0: remove_child(GAMESTATE)
 	if path != "":
 		gamestate_scene = load(path)
 	GAMESTATE = gamestate_scene.instantiate()
+	if rampage: GAMESTATE.rampage = rampage
 	add_child(GAMESTATE,true)
 
 func _ready():

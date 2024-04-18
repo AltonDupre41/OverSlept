@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://beu31t5st4dw"
+path="res://.godot/imported/chandelierobj.obj-828abb9b57766238f02de0b54186eedd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chandelierobj.obj-828abb9b57766238f02de0b54186eedd.mesh"]
+
+source_file="res://assets/Models/chandelierobj.obj"
+dest_files=["res://.godot/imported/chandelierobj.obj-828abb9b57766238f02de0b54186eedd.mesh", "res://.godot/imported/chandelierobj.obj-828abb9b57766238f02de0b54186eedd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
