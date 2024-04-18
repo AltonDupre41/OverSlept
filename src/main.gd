@@ -13,6 +13,10 @@ var LEVEL_DATA = {
 	},
 }
 
+func _input(event):
+	if Input.is_action_just_pressed("start") && get_child(0).name.begins_with("Level") && !get_child(0).level_complete:
+		get_child(0).pause(!get_child(0).paused)
+
 #enum MOVEMENT{TANK, TURN}
 #@export var movementType = MOVEMENT
 @export_enum("TANK","TURN") var movementType:int

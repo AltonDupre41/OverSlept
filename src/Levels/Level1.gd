@@ -1,5 +1,7 @@
 extends Node3D
 
+var paused = false
+
 var items_dropped = 0
 var tasks = []
 var stars = 0
@@ -10,6 +12,7 @@ var stopwatch = false
 @export var level_name = ""
 @export var rampage = false
 @export var rampage_goal = 4
+var level_complete = false
 
 func _ready():
 	rotation.y = deg_to_rad(-45)
@@ -31,7 +34,7 @@ func _process(delta):
 		time += delta
 		$Stopwatch.text = String.num(time, 2)
 	
-	if Input.is_action_just_pressed("start"):
+	if Input.is_action_just_pressed("select"):
 		get_parent().changeState("res://src/testScenes/levelbuttons.tscn")
 	
 	if !$UI/Score/Suspense.is_stopped():
@@ -55,6 +58,7 @@ func _on_task_body_entered(body):
 		$TaskWait.start()
 
 func _on_level_complete():
+	level_complete = true
 	$UI.show()
 	$UI/CompleteAnim.play("appear")
 
@@ -66,7 +70,7 @@ func calculate_score():
 		$UI/Score.text = str("Your time: ",String.num(time,2))
 		$UI/Complete2.hide()
 		$UI/Button.show()
-		
+		$UI/Button.grab_focus()
 	
 
 func _on_complete_anim_animation_finished(anim_name):
@@ -88,3 +92,12 @@ func set_score():
 
 func _on_button_pressed():
 	get_parent().changeState("res://src/testScenes/levelbuttons.tscn")
+
+func pause(extra):
+	paused = extra
+	if paused:
+		process_mode = Node.PROCESS_MODE_DISABLED
+		$Paused.show()
+	else:
+		process_mode = Node.PROCESS_MODE_ALWAYS
+		$Paused.hide()

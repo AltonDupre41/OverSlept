@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1pe0j77nrvll"]
+[gd_scene load_steps=16 format=3 uid="uid://d1pe0j77nrvll"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_itewp"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_6ayba"]
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="3_dcu2s"]
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="4_ogck7"]
 [ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="5_2h3aq"]
+[ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="6_bcn8c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eufd"]
 albedo_color = Color(0.729412, 1, 0.6, 1)
@@ -62,6 +63,7 @@ _data = {
 [sub_resource type="SystemFont" id="SystemFont_3o64n"]
 
 [node name="level_2" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_itewp")
 level_name = "KITCHEN"
 
@@ -250,3 +252,23 @@ grow_horizontal = 2
 theme_override_fonts/font = SubResource("SystemFont_3o64n")
 theme_override_font_sizes/font_size = 32
 text = "00:00.00"
+
+[node name="Paused" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.5
+offset_top = -191.0
+offset_right = 99.5
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_dcu2s")
+text = "Paused"
+
+[node name="Controls" type="Sprite2D" parent="Paused"]
+position = Vector2(112.5, 272)
+texture = ExtResource("6_bcn8c")

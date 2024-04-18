@@ -3,12 +3,11 @@
 [ext_resource type="Script" path="res://src/testScenes/sceneLoader.gd" id="1_jgttg"]
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="2_28akw"]
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="2_diedi"]
+[ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="4_ty53x"]
 
 [sub_resource type="SystemFont" id="SystemFont_mdpac"]
 
 [sub_resource type="SystemFont" id="SystemFont_qyjh7"]
-
-[sub_resource type="SystemFont" id="SystemFont_dmki2"]
 
 [node name="levelButtons" type="Control"]
 layout_mode = 3
@@ -168,10 +167,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -442.0
-offset_top = -139.0
-offset_right = 442.0
-offset_bottom = -84.0
+offset_left = -108.5
+offset_top = -197.0
+offset_right = 532.5
+offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_diedi")
@@ -180,25 +179,12 @@ theme_override_font_sizes/font_size = 18
 text = "Lizard has just been woken up by their alarm clock to find that they are late for class
 Reach all the red markers to prepare for class without knocking over all the small objects in the house"
 horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -442.0
-offset_top = -55.0
-offset_right = 442.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("2_diedi")
-theme_override_fonts/font = SubResource("SystemFont_dmki2")
-theme_override_font_sizes/font_size = 18
-text = "To move use the lefft analog stick or W,A,S,D. Select the level with the mouse. 
-To return to here press ENTER or Start on your controler"
-horizontal_alignment = 1
+[node name="Controls" type="Sprite2D" parent="."]
+position = Vector2(194, 527)
+scale = Vector2(0.576087, 0.576087)
+texture = ExtResource("4_ty53x")
 
 [connection signal="pressed" from="GridContainer/BEDROOM" to="." method="_on_pressed" binds= [0]]
 [connection signal="pressed" from="GridContainer/BEDROOM/Rampage" to="." method="_on_pressed" binds= [0, true]]

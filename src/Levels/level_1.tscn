@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d3x7h7jtx50h3"]
+[gd_scene load_steps=27 format=3 uid="uid://d3x7h7jtx50h3"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_tvk1w"]
 [ext_resource type="PackedScene" uid="uid://16dfbpicy2ia" path="res://src/Objects/pole.tscn" id="2_q6kic"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="5_7iu2a"]
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="6_yb73n"]
 [ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="7_hefr7"]
+[ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="8_mg18k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eufd"]
 albedo_color = Color(0.729412, 1, 0.6, 1)
@@ -94,6 +95,7 @@ _data = {
 [sub_resource type="SystemFont" id="SystemFont_0ciix"]
 
 [node name="Level1" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_tvk1w")
 level_name = "BEDROOM"
 
@@ -348,9 +350,13 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
 theme_override_fonts/font = ExtResource("7_hefr7")
 theme_override_font_sizes/font_size = 32
-text = "Press Start to Return To Menu"
+text = "Press Select to Return To Menu"
 
 [node name="CompleteAnim" type="AnimationPlayer" parent="UI"]
 root_node = NodePath("../Complete")
@@ -373,6 +379,26 @@ grow_horizontal = 2
 theme_override_fonts/font = SubResource("SystemFont_0ciix")
 theme_override_font_sizes/font_size = 32
 text = "00:00.00"
+
+[node name="Paused" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.5
+offset_top = -191.0
+offset_right = 99.5
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_7iu2a")
+text = "Paused"
+
+[node name="Controls" type="Sprite2D" parent="Paused"]
+position = Vector2(112.5, 272)
+texture = ExtResource("8_mg18k")
 
 [connection signal="hit_ground" from="Objects/PhysCube" to="." method="_on_object_hit_ground"]
 [connection signal="hit_ground" from="Objects/PhysCube2" to="." method="_on_object_hit_ground"]
