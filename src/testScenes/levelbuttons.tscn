@@ -96,6 +96,7 @@ offset_bottom = 284.0
 text = "Rampage"
 
 [node name="BestTimeLabel" type="Label" parent="GridContainer/BEDROOM"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 230.0
 offset_right = 100.0

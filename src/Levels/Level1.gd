@@ -2,6 +2,7 @@ extends Node3D
 
 var paused = false
 
+var music_player
 
 var items_dropped = 0
 var tasks = []
@@ -18,6 +19,9 @@ var level_complete = false
 
 func _ready():
 	load_best_time()
+	music_player = $MusicPlayer
+	#music_player.volume_db = 0.0
+	music_player.play()
 	rotation.y = deg_to_rad(-45)
 	if !rampage:
 		for task in $Tasks.get_children():
@@ -33,6 +37,7 @@ func _ready():
 		$Stopwatch.show()
 		time = 0  # Reset time on level start
 		#$Stopwatch/Timer.start()
+	
 
 func _process(delta):
 	if stopwatch:

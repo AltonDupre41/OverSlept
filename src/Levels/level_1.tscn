@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d3x7h7jtx50h3"]
+[gd_scene load_steps=28 format=3 uid="uid://d3x7h7jtx50h3"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_tvk1w"]
 [ext_resource type="PackedScene" uid="uid://16dfbpicy2ia" path="res://src/Objects/pole.tscn" id="2_q6kic"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="6_yb73n"]
 [ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="7_hefr7"]
 [ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="8_mg18k"]
+[ext_resource type="AudioStream" uid="uid://dj5mw4x038q5k" path="res://assets/cartoon extended.mp3" id="9_820h7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eufd"]
 albedo_color = Color(0.729412, 1, 0.6, 1)
@@ -402,6 +403,9 @@ text = "Paused"
 [node name="Controls" type="Sprite2D" parent="Paused"]
 position = Vector2(112.5, 272)
 texture = ExtResource("8_mg18k")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_820h7")
 
 [connection signal="hit_ground" from="Objects/PhysCube" to="." method="_on_object_hit_ground"]
 [connection signal="hit_ground" from="Objects/PhysCube2" to="." method="_on_object_hit_ground"]
