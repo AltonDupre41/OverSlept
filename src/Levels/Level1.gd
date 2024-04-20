@@ -2,10 +2,12 @@ extends Node3D
 
 var paused = false
 
+
 var items_dropped = 0
 var tasks = []
 var stars = 0
 var time:float = 0
+var best_time: float = INF  # Initialize best time with infinity
 var stopwatch = false
 @export var highscore:int = 1
 @export var lowscore:int = 6
@@ -15,6 +17,7 @@ var stopwatch = false
 var level_complete = false
 
 func _ready():
+	load_best_time()
 	rotation.y = deg_to_rad(-45)
 	if !rampage:
 		for task in $Tasks.get_children():
@@ -22,11 +25,13 @@ func _ready():
 			task.monitoring = false
 		tasks[0].show()
 		tasks[0].monitoring = true
+		$UI/BestTimeLabel.hide()
 	else:
 		for task in $Tasks.get_children():
 			task.monitoring = false
 		stopwatch = true
 		$Stopwatch.show()
+		time = 0  # Reset time on level start
 		#$Stopwatch/Timer.start()
 
 func _process(delta):
@@ -61,8 +66,16 @@ func _on_task_body_entered(body):
 
 func _on_level_complete():
 	level_complete = true
+	if rampage and time < best_time:
+		best_time = time
 	$UI.show()
 	$UI/CompleteAnim.play("appear")
+
+
+
+func update_best_time_display():
+	$UI/BestTimeLabel.text = "Best Time: " + String.num(best_time, 2) # Update the label's text
+
 
 func calculate_score():
 	if !rampage: 
@@ -71,6 +84,10 @@ func calculate_score():
 	else: 
 		$UI/Score.text = str("Your time: ",String.num(time,2))
 		$UI/Complete2.hide()
+		if time <= best_time:
+			$UI/Score.text += " (New Best!)"
+			save_best_time()
+		update_best_time_display()
 		$UI/Button.show()
 		$UI/Button.grab_focus()
 	
@@ -103,3 +120,19 @@ func pause(extra):
 	else:
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		$Paused.hide()
+		
+func save_best_time():
+	var file = FileAccess.open("user://%s_best_time.save" % level_name, FileAccess.WRITE)
+	file.store_var(best_time)
+
+func load_best_time():
+	if FileAccess.file_exists("user://%s_best_time.save" % level_name):
+		var file = FileAccess.open("user://%s_best_time.save" % level_name, FileAccess.READ)
+		if file:
+			best_time = file.get_var(best_time)
+			file.close()
+		else:
+			print("Failed to load the best time.")
+	else:
+		best_time = INF  # No best time saved yet
+
