@@ -274,7 +274,6 @@ MAX_SPEED = 12.0
 push_FORCE = 0.1
 
 [node name="UI" type="VBoxContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -311,7 +310,6 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Complete2" type="Label" parent="UI"]
-visible = false
 layout_mode = 2
 theme = ExtResource("5_7iu2a")
 text = "Rampage Mode Unlocked"
