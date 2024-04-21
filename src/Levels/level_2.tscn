@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d1pe0j77nrvll"]
+[gd_scene load_steps=30 format=3 uid="uid://d1pe0j77nrvll"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_itewp"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_6ayba"]
@@ -37,6 +37,28 @@ material = SubResource("StandardMaterial3D_kf45h")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pacdc"]
+points = PackedVector3Array(-2, -0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, -0.5, 2, -2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7y3t"]
+transparency = 1
+albedo_color = Color(0.976471, 0.392157, 0.517647, 0.74902)
+
+[sub_resource type="BoxMesh" id="BoxMesh_inrrt"]
+material = SubResource("StandardMaterial3D_g7y3t")
+size = Vector3(4, 1, 4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_exe1q"]
+points = PackedVector3Array(-2, -0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, -0.5, 2, -2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxsfu"]
+transparency = 1
+albedo_color = Color(0.976471, 0.392157, 0.517647, 0.74902)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n8olg"]
+material = SubResource("StandardMaterial3D_jxsfu")
+size = Vector3(4, 1, 4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p461t"]
 points = PackedVector3Array(-2, -0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, -0.5, 2, -2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, 2)
 
 [sub_resource type="Animation" id="Animation_0d3yn"]
@@ -86,6 +108,7 @@ level_name = "KITCHEN"
 [node name="Room" type="Node3D" parent="."]
 
 [node name="Floor" type="StaticBody3D" parent="Room" groups=["ground"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_mask = 6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
@@ -98,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("ConcavePolygonShape3D_6s3xw")
 
 [node name="Floor2" type="StaticBody3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.9, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.1001, 17.6512, -0.70245)
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor2"]
@@ -106,6 +129,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("ConcavePolygonShape3D_6s3xw")
 
 [node name="Walls" type="Node3D" parent="Room"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Wall1" type="StaticBody3D" parent="Room/Walls"]
 
@@ -143,7 +167,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
 shape = SubResource("ConvexPolygonShape3D_u56kt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Room"]
-transform = Transform3D(1, 0, -5.63646e-16, 1.77636e-15, 0.948324, 0.317305, 0, -0.317305, 0.948324, 12, 5, -12)
+transform = Transform3D(1, -1.68456e-15, -5.63648e-16, 1.77636e-15, 0.948324, 0.317305, 0, -0.317305, 0.948324, 12, 5, -12)
 light_energy = 0.5
 shadow_enabled = true
 
@@ -174,6 +198,30 @@ mesh = SubResource("BoxMesh_pjikl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tasks/Task1"]
 shape = SubResource("ConvexPolygonShape3D_pacdc")
+
+[node name="Task2" type="Area3D" parent="Tasks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7, 0.5, -2.9)
+visible = false
+collision_layer = 8
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tasks/Task2"]
+mesh = SubResource("BoxMesh_inrrt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tasks/Task2"]
+shape = SubResource("ConvexPolygonShape3D_exe1q")
+
+[node name="Task3" type="Area3D" parent="Tasks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7, 0.5, -9.8)
+visible = false
+collision_layer = 8
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tasks/Task3"]
+mesh = SubResource("BoxMesh_n8olg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tasks/Task3"]
+shape = SubResource("ConvexPolygonShape3D_p461t")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, -0.298836, 0.640857, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640857, 25, 18, 25)
@@ -325,3 +373,9 @@ stream = ExtResource("9_rjjwe")
 [connection signal="hit_ground" from="Objects/Chair" to="." method="_on_object_hit_ground"]
 [connection signal="hit_ground" from="Objects/TableObject" to="." method="_on_object_hit_ground"]
 [connection signal="body_entered" from="Tasks/Task1" to="." method="_on_task_body_entered"]
+[connection signal="body_entered" from="Tasks/Task2" to="." method="_on_task_body_entered"]
+[connection signal="body_entered" from="Tasks/Task3" to="." method="_on_task_body_entered"]
+[connection signal="timeout" from="UI/Score/Suspense" to="." method="calculate_score"]
+[connection signal="timeout" from="UI/Score/Suspense2" to="." method="set_score"]
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
+[connection signal="animation_finished" from="UI/CompleteAnim" to="." method="_on_complete_anim_animation_finished"]
