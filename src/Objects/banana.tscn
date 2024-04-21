@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dypcxsc0yfyw6"]
+
+[ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_5hah6"]
+[ext_resource type="ArrayMesh" uid="uid://bepw6vx0jmmgp" path="res://assets/Models/Props/prop_banana.obj" id="2_cjwbp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qqeui"]
+height = 1.4
+radius = 0.4
+
+[node name="banana" type="RigidBody3D" node_paths=PackedStringArray("floorDetectNode") groups=["FloorDetectable"]]
+collision_layer = 2
+collision_mask = 7
+mass = 5.84
+script = ExtResource("1_5hah6")
+OVERIDE_ROOM_GRAVITY = true
+floorDetectNode = NodePath("")
+
+[node name="banana" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0937005, 0, 0.284992, 0, 0.3, 0, -0.284992, 0, -0.0937005, -3.01038, -0.0220872, 0.460567)
+mesh = ExtResource("2_cjwbp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0684953, 0.020265, -0.0281819)
+shape = SubResource("CylinderShape3D_qqeui")
+
+[connection signal="hit_ground" from="." to="." method="_on_object_hit_ground"]

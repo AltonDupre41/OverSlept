@@ -274,6 +274,7 @@ MAX_SPEED = 12.0
 push_FORCE = 0.1
 
 [node name="UI" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

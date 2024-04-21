@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d1pe0j77nrvll"]
+[gd_scene load_steps=24 format=3 uid="uid://d1pe0j77nrvll"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_itewp"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_6ayba"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bkorlwmmoj0ks" path="res://src/Objects/prop_apple.tscn" id="4_faq2q"]
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="4_ogck7"]
 [ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="5_2h3aq"]
+[ext_resource type="PackedScene" uid="uid://dypcxsc0yfyw6" path="res://src/Objects/banana.tscn" id="5_fi00e"]
 [ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="6_bcn8c"]
 [ext_resource type="AudioStream" uid="uid://dj5mw4x038q5k" path="res://assets/cartoon extended.mp3" id="9_rjjwe"]
 
@@ -157,6 +158,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0, 0)
 [node name="apple" parent="Objects" node_paths=PackedStringArray("floorDetectNode") instance=ExtResource("4_faq2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26236, 3.83973, 0.636256)
 floorDetectNode = NodePath(".")
+
+[node name="banana" parent="Objects" instance=ExtResource("5_fi00e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43814, 4.02957, -0.0796025)
 
 [node name="Tasks" type="Node3D" parent="."]
 
