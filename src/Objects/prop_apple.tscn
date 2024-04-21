@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkorlwmmoj0ks"]
+
+[ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_40vh0"]
+[ext_resource type="ArrayMesh" uid="uid://dee7smeyt4w8g" path="res://assets/Models/Props/prop_apple.obj" id="2_352uv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f8mii"]
+
+[node name="apple" type="RigidBody3D" node_paths=PackedStringArray("floorDetectNode") groups=["FloorDetectable"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_40vh0")
+OVERIDE_ROOM_GRAVITY = true
+floorDetectNode = NodePath("")
+
+[node name="apple" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.20399, -0.0624573, -1.05229)
+mesh = ExtResource("2_352uv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.7, 9.77384e-05, 0, -9.77384e-05, 0.7, 0, 0, 0, 0.7, 0.000288725, 0.271131, -0.0689373)
+shape = SubResource("BoxShape3D_f8mii")
+
+[connection signal="hit_ground" from="." to="." method="_on_object_hit_ground"]
