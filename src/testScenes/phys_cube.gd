@@ -34,8 +34,3 @@ func _on_body_entered(body):
 		# Disconnect the signal after the first ground hit to stop detecting further hits
 		await get_tree().process_frame
 		floorDetectNode.disconnect("body_entered", Callable(self, "_on_body_entered"))
-
-
-
-func _on_object_hit_ground():
-	pass # Replace with function body.
