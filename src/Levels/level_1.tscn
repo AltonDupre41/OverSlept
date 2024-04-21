@@ -311,6 +311,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Complete2" type="Label" parent="UI"]
+visible = false
 layout_mode = 2
 theme = ExtResource("5_7iu2a")
 text = "Rampage Mode Unlocked"
@@ -321,6 +322,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Star1" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(175, 175)
 layout_mode = 2
@@ -329,6 +331,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Star2" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(175, 175)
 layout_mode = 2
@@ -337,6 +340,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Star3" type="TextureRect" parent="UI/HBoxContainer"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(175, 175)
 layout_mode = 2
