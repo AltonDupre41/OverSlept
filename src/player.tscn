@@ -1,11 +1,344 @@
-[gd_scene load_steps=9 format=3 uid="uid://ds1k1qkuo2klt"]
+[gd_scene load_steps=13 format=3 uid="uid://ds1k1qkuo2klt"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_hahoo"]
+[ext_resource type="PackedScene" uid="uid://c34uq4h63ror5" path="res://assets/Models/hopeThisWorks.glb" id="2_d32d7"]
 [ext_resource type="Script" path="res://src/Tail.gd" id="2_w0xh6"]
+[ext_resource type="Animation" uid="uid://w44wv6btch1m" path="res://assets/animations/Walk.res" id="3_cbuqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lic2g"]
 radius = 1.0
 height = 4.5
+
+[sub_resource type="Animation" id="Animation_p5h06"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_Hips")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.5, -0.5, 0.5, -0.5)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_LeftUpLeg")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 4.52912e-16, 0.196424, 5.91646e-31, 0.980519)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_LeftLeg")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 3.16631e-16, -0.123798, 1.87025e-15, 0.992307)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_LeftFoot")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1.67072e-16, -0.0802166, -3.5642e-15, 0.996777)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_LeftToeBase")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -3.8572e-17, -9.31323e-10, -3.55294e-15, 1)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_RightUpLeg")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 5.54313e-23, -0.296449, -7.05297e-38, 0.955049)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_RightLeg")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -1.34871e-15, 0.155662, -1.0612e-23, 0.98781)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_RightFoot")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -2.44403e-24, 0.137526, -1.7934e-15, 0.990498)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_RightToeBase")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 2.77556e-17, 1.58409e-05, 3.55271e-15, 1)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_Spine")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 5.29396e-23, 0, 0, 1)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_Spine1")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 5.29396e-23, 0, 0, 1)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_Spine2")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 5.29396e-23, 0, 0, 1)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_LeftShoulder")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0, -0.707107, 0, 0.707107)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_LeftArm")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, -1.96325e-15, -0.42583, -6.74465e-24, 0.904803)
+tracks/14/type = "rotation_3d"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_LeftForeArm")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, -1.75314e-15, -0.0216131, 2.01075e-15, 0.999766)
+tracks/15/type = "rotation_3d"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_LeftHand")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = PackedFloat32Array(0, 1, 2.36543e-17, 2.10553e-05, -2.43064e-15, 1)
+tracks/16/type = "rotation_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_RightShoulder")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, 0, 0.707107, 0, 0.707107)
+tracks/17/type = "rotation_3d"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_RightArm")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 2.35094e-24, 0.900859, 1.97185e-15, 0.434112)
+tracks/18/type = "rotation_3d"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_RightForeArm")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, -1.4386e-24, 0.0224191, 1.7768e-15, 0.999749)
+tracks/19/type = "rotation_3d"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_RightHand")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = PackedFloat32Array(0, 1, -8.88178e-16, -2.24411e-05, 1.05879e-22, 1)
+tracks/20/type = "rotation_3d"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_Neck")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = PackedFloat32Array(0, 1, 5.29396e-23, 0, 0, 1)
+tracks/21/type = "rotation_3d"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_Head")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = PackedFloat32Array(0, 1, 5.29396e-23, 0, 0, 1)
+tracks/22/type = "rotation_3d"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:QuickRigCharacter_Guides")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = PackedFloat32Array(0, 1, -0.707107, 0, 0, 0.707107)
+tracks/23/type = "rotation_3d"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:Head1")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/24/type = "rotation_3d"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:Hips")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/25/type = "rotation_3d"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:LeftArm")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/26/type = "rotation_3d"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:LeftFoot")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = PackedFloat32Array(0, 1, 0, -0.132118, 0, 0.991234)
+tracks/27/type = "rotation_3d"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:LeftForeArm")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/28/type = "rotation_3d"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:LeftHand")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/29/type = "rotation_3d"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:LeftLeg")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/30/type = "rotation_3d"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:LeftShoulder")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/31/type = "rotation_3d"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:LeftToeBase")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/32/type = "rotation_3d"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:LeftUpLeg")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/33/type = "rotation_3d"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:Neck")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/34/type = "rotation_3d"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:Reference")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/35/type = "rotation_3d"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:RightArm")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/36/type = "rotation_3d"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:RightFoot")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/37/type = "rotation_3d"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:RightForeArm")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/38/type = "rotation_3d"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:RightHand")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/39/type = "rotation_3d"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:RightLeg")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/40/type = "rotation_3d"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:RightShoulder")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/41/type = "rotation_3d"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:RightToeBase")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/42/type = "rotation_3d"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:RightUpLeg")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/43/type = "rotation_3d"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:Spine")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/44/type = "rotation_3d"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:Spine1")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/45/type = "rotation_3d"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature/Skeleton3D:Spine2")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aa8os"]
+_data = {
+"RESET": SubResource("Animation_p5h06"),
+"Walk": ExtResource("3_cbuqv")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiyvb"]
 albedo_color = Color(0.360784, 1, 1, 1)
@@ -36,26 +369,72 @@ shape = SubResource("CapsuleShape3D_lic2g")
 collision_layer = 0
 collision_mask = 0
 
+[node name="hopeThisWorks" parent="Mesh" instance=ExtResource("2_d32d7")]
+transform = Transform3D(-8.74228e-06, 0, 200, 0, 200, 0, -200, 0, -8.74228e-06, -2, 0.3, 0)
+
+[node name="Skeleton3D" parent="Mesh/hopeThisWorks/QuickRigCharacter_Reference/Armature" index="0"]
+bones/0/rotation = Quaternion(0.5, -0.5, 0.5, -0.5)
+bones/1/rotation = Quaternion(4.52912e-16, 0.196424, -5.05949e-24, 0.980519)
+bones/1/scale = Vector3(1, 0.999999, 1)
+bones/2/position = Vector3(-0.094866, -0.427967, 0.0556537)
+bones/2/rotation = Quaternion(3.16631e-16, -0.123798, 1.87025e-15, 0.992307)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(1.67072e-16, -0.0802166, -3.5642e-15, 0.996777)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(-3.8572e-17, -9.31323e-10, -3.55294e-15, 1)
+bones/5/rotation = Quaternion(5.54313e-23, -0.296449, -2.70455e-30, 0.955049)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-1.34871e-15, 0.155662, 7.05285e-24, 0.98781)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-2.67443e-23, 0.137526, -1.7934e-15, 0.990498)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(2.77556e-17, 1.58409e-05, 3.55271e-15, 1)
+bones/9/rotation = Quaternion(5.29396e-23, 0, 0, 1)
+bones/10/rotation = Quaternion(5.29396e-23, 0, 0, 1)
+bones/11/rotation = Quaternion(5.29396e-23, 0, 0, 1)
+bones/13/rotation = Quaternion(-1.96325e-15, -0.42583, -6.73735e-23, 0.904803)
+bones/14/rotation = Quaternion(-1.75314e-15, -0.0216131, 2.01075e-15, 0.999766)
+bones/15/rotation = Quaternion(2.36543e-17, 2.10553e-05, -2.43064e-15, 1)
+bones/17/rotation = Quaternion(5.69235e-23, 0.900859, 1.97185e-15, 0.434112)
+bones/18/rotation = Quaternion(-8.85483e-25, 0.0224191, 1.7768e-15, 0.999749)
+bones/19/rotation = Quaternion(-8.88178e-16, -2.24411e-05, 1.05879e-22, 1)
+bones/20/rotation = Quaternion(5.29396e-23, 0, 0, 1)
+bones/21/rotation = Quaternion(5.29396e-23, 0, 0, 1)
+bones/26/position = Vector3(0.328728, -1.21427, 1.04861)
+bones/26/rotation = Quaternion(0, -0.132118, 0, 0.991234)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mesh/hopeThisWorks/QuickRigCharacter_Reference" index="1"]
+root_node = NodePath("../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_aa8os")
+}
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh"]
 shape = SubResource("CapsuleShape3D_lic2g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
+visible = false
 mesh = SubResource("CapsuleMesh_0u77y")
 skeleton = NodePath("../..")
 
 [node name="FaceDecal" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.5, 1, 0)
+visible = false
 mesh = SubResource("PrismMesh_ykmm2")
 skeleton = NodePath("../..")
 
 [node name="Tail" type="CharacterBody3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.4, 0)
+collision_layer = 4
+collision_mask = 3
 axis_lock_linear_y = true
 script = ExtResource("2_w0xh6")
+pull_force = 10
 PULLABLE = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Tail"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+visible = false
 mesh = SubResource("SphereMesh_4s3um")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Tail"]
@@ -63,15 +442,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
 shape = SubResource("SphereShape3D_d0o7d")
 
 [node name="Tail" type="CharacterBody3D" parent="Mesh/Tail"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.32099, 0, 0)
+collision_layer = 4
+collision_mask = 3
 axis_lock_linear_y = true
 script = ExtResource("2_w0xh6")
+pull_force = 10
 PULLABLE = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Tail/Tail"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 0, 0)
+visible = false
 mesh = SubResource("SphereMesh_4s3um")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Tail/Tail"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 0, 0)
 shape = SubResource("SphereShape3D_d0o7d")
+
+[node name="Tail" type="CharacterBody3D" parent="Mesh/Tail/Tail"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.88426, 0, 0)
+collision_layer = 4
+collision_mask = 3
+axis_lock_linear_y = true
+script = ExtResource("2_w0xh6")
+pull_force = 10
+PULLABLE = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Tail/Tail/Tail"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_4s3um")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Tail/Tail/Tail"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 0, 0)
+shape = SubResource("SphereShape3D_d0o7d")
+
+[editable path="Mesh/hopeThisWorks"]

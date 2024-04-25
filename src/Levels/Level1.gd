@@ -19,9 +19,6 @@ var level_complete = false
 
 func _ready():
 	load_best_time()
-	music_player = $MusicPlayer
-	#music_player.volume_db = 0.0
-	music_player.play()
 	rotation.y = deg_to_rad(-45)
 	if !rampage:
 		for task in $Tasks.get_children():

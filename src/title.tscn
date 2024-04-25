@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://da6gtq31iq5dy"]
+
+[ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="1_6isi0"]
+[ext_resource type="Script" path="res://src/title.gd" id="1_dlcvb"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_dlcvb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -252.0
+offset_right = 146.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_6isi0")
+text = "OverSlept"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.728395
+anchor_right = 0.5
+anchor_bottom = 0.728395
+offset_left = -320.0
+offset_top = -24.0
+offset_right = 319.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_6isi0")
+text = "Press Start Or Enter"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

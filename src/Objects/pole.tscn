@@ -9,6 +9,8 @@ size = Vector3(1, 4, 1)
 points = PackedVector3Array(0.5, 1.85247, 0.5, -0.5, -1.91223, -0.5, -0.484127, -1.85247, 0.5, -0.5, 1.91223, -0.5, 0.5, -1.85247, -0.484127, -0.484127, 1.85247, 0.5, 0.5, 1.85247, -0.484127, 0.5, -1.85247, 0.5)
 
 [node name="Pole" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_yp3b4")
 OVERIDE_ROOM_GRAVITY = true
 

@@ -37,6 +37,7 @@ focus_neighbor_left = NodePath("../KITCHEN")
 focus_neighbor_top = NodePath("Rampage")
 focus_neighbor_right = NodePath("../KITCHEN")
 focus_neighbor_bottom = NodePath("Rampage")
+action_mode = 0
 text = "Level 1"
 
 [node name="Name" type="Label" parent="GridContainer/BEDROOM"]
@@ -93,6 +94,7 @@ layout_mode = 0
 offset_top = 236.0
 offset_right = 122.0
 offset_bottom = 284.0
+action_mode = 0
 text = "Rampage"
 
 [node name="BestTimeLabel" type="Label" parent="GridContainer/BEDROOM"]
@@ -112,6 +114,7 @@ focus_neighbor_left = NodePath("../BEDROOM")
 focus_neighbor_top = NodePath("Rampage")
 focus_neighbor_right = NodePath("../BEDROOM")
 focus_neighbor_bottom = NodePath("Rampage")
+action_mode = 0
 text = "Level 2"
 
 [node name="Name" type="Label" parent="GridContainer/KITCHEN"]
@@ -168,6 +171,7 @@ layout_mode = 0
 offset_top = 236.0
 offset_right = 122.0
 offset_bottom = 284.0
+action_mode = 0
 text = "Rampage"
 
 [node name="Label" type="Label" parent="."]
