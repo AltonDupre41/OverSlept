@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d1pe0j77nrvll"]
+[gd_scene load_steps=31 format=3 uid="uid://d1pe0j77nrvll"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_itewp"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_6ayba"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="4_ogck7"]
 [ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="5_2h3aq"]
 [ext_resource type="PackedScene" uid="uid://dypcxsc0yfyw6" path="res://src/Objects/banana.tscn" id="5_fi00e"]
+[ext_resource type="PackedScene" uid="uid://33epgxbdi5rj" path="res://src/Objects/Props.tscn" id="6_5t674"]
 [ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="6_bcn8c"]
 [ext_resource type="AudioStream" uid="uid://dj5mw4x038q5k" path="res://assets/cartoon extended.mp3" id="9_rjjwe"]
 
@@ -185,6 +186,9 @@ floorDetectNode = NodePath(".")
 
 [node name="banana" parent="Objects" instance=ExtResource("5_fi00e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43814, 4.02957, -0.0796025)
+
+[node name="bowl" parent="Objects" instance=ExtResource("6_5t674")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41249, 3.81582, -0.833722)
 
 [node name="Tasks" type="Node3D" parent="."]
 

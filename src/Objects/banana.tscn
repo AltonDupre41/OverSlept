@@ -7,13 +7,12 @@
 height = 1.4
 radius = 0.4
 
-[node name="banana" type="RigidBody3D" node_paths=PackedStringArray("floorDetectNode") groups=["FloorDetectable"]]
+[node name="banana" type="RigidBody3D" groups=["FloorDetectable"]]
 collision_layer = 2
 collision_mask = 7
 mass = 5.84
 script = ExtResource("1_5hah6")
 OVERIDE_ROOM_GRAVITY = true
-floorDetectNode = NodePath("")
 
 [node name="banana" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0937005, 0, 0.284992, 0, 0.3, 0, -0.284992, 0, -0.0937005, -3.01038, -0.0220872, 0.460567)
