@@ -1,13 +1,18 @@
-[gd_scene load_steps=36 format=3 uid="uid://d1pe0j77nrvll"]
+[gd_scene load_steps=41 format=3 uid="uid://d1pe0j77nrvll"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_itewp"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_6ayba"]
 [ext_resource type="PackedScene" uid="uid://bii3wwkqmuy80" path="res://assets/Models/levels/living_room_scene_overslept.fbx" id="2_bqpgd"]
+[ext_resource type="PackedScene" uid="uid://vluo43rnwxqr" path="res://src/Objects/mug.tscn" id="3_18raa"]
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="3_dcu2s"]
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="4_ogck7"]
 [ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="5_2h3aq"]
+[ext_resource type="PackedScene" uid="uid://ccy4nsek8ejav" path="res://src/Objects/Cube.tscn" id="5_usifi"]
 [ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="6_bcn8c"]
+[ext_resource type="PackedScene" uid="uid://dypcxsc0yfyw6" path="res://src/Objects/banana.tscn" id="7_mstik"]
 [ext_resource type="AudioStream" uid="uid://dj5mw4x038q5k" path="res://assets/cartoon extended.mp3" id="9_rjjwe"]
+[ext_resource type="PackedScene" uid="uid://ya6fo34xrc82" path="res://src/Objects/donut.tscn" id="10_r21n2"]
+[ext_resource type="PackedScene" uid="uid://33epgxbdi5rj" path="res://src/Objects/bowl.tscn" id="12_jgf7b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7p05x"]
 size = Vector3(11.1978, 0.549438, 11.473)
@@ -247,6 +252,48 @@ shape = SubResource("BoxShape3D_8bac8")
 
 [node name="Objects" type="Node3D" parent="."]
 
+[node name="Mug" parent="Objects" node_paths=PackedStringArray("floorDetectNode") instance=ExtResource("3_18raa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81763, 1.69689, 2.4535)
+floorDetectNode = NodePath("../../Room/Floor/CollisionShape3D")
+
+[node name="donut" parent="Objects" instance=ExtResource("10_r21n2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23494, 1.60425, -1.24445)
+
+[node name="bowl" parent="Objects" node_paths=PackedStringArray("floorDetectNode") instance=ExtResource("12_jgf7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81024, 2.47304, 7.17575)
+floorDetectNode = NodePath("../../Room/Floor/CollisionShape3D")
+
+[node name="bowl2" parent="Objects" node_paths=PackedStringArray("floorDetectNode") instance=ExtResource("12_jgf7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.33225, 2.47885, 9.47741)
+floorDetectNode = NodePath("../../Room/Floor/CollisionShape3D")
+
+[node name="Cube" parent="Objects" instance=ExtResource("5_usifi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79821, 0, 7.26596)
+
+[node name="Cube2" parent="Objects" instance=ExtResource("5_usifi")]
+transform = Transform3D(0.86366, 0, 0.504076, 0, 1, 0, -0.504076, 0, 0.86366, -6.36431, 0, 9.66602)
+
+[node name="Cube3" parent="Objects" instance=ExtResource("5_usifi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87711, 0, 4.39913)
+
+[node name="donut2" parent="Objects" node_paths=PackedStringArray("floorDetectNode") instance=ExtResource("10_r21n2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87222, 2.47705, 4.38367)
+floorDetectNode = NodePath("../../Room/Floor/CollisionShape3D")
+
+[node name="Cube4" parent="Objects" instance=ExtResource("5_usifi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63164, 0, -1.10997)
+
+[node name="banana" parent="Objects" node_paths=PackedStringArray("floorDetectNode") instance=ExtResource("7_mstik")]
+transform = Transform3D(0.999965, -0.00832512, 0, 0.00832512, 0.999965, 0, 0, 0, 1, 5.88736, 2.69839, -1.0148)
+floorDetectNode = NodePath("../../Room/Floor/CollisionShape3D")
+
+[node name="Cube5" parent="Objects" instance=ExtResource("5_usifi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16309, 0, -2.21993)
+
+[node name="Mug2" parent="Objects" node_paths=PackedStringArray("floorDetectNode") instance=ExtResource("3_18raa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24841, 2.48536, -2.2626)
+floorDetectNode = NodePath("../../Room/Floor/CollisionShape3D")
+
 [node name="Tasks" type="Node3D" parent="."]
 
 [node name="Task1" type="Area3D" parent="Tasks"]
@@ -425,6 +472,12 @@ stream = ExtResource("9_rjjwe")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_x7kun")
 
+[connection signal="hit_ground" from="Objects/Mug" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/bowl" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/bowl2" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/donut2" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/banana" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/Mug2" to="." method="_on_object_hit_ground"]
 [connection signal="body_entered" from="Tasks/Task1" to="." method="_on_task_body_entered"]
 [connection signal="body_entered" from="Tasks/Task2" to="." method="_on_task_body_entered"]
 [connection signal="body_entered" from="Tasks/Task3" to="." method="_on_task_body_entered"]

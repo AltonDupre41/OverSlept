@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://33epgxbdi5rj"]
+[gd_scene load_steps=5 format=3 uid="uid://33epgxbdi5rj"]
 
 [ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_4f2v3"]
 [ext_resource type="ArrayMesh" uid="uid://d3wj8actxpegt" path="res://assets/Models/Props/prop_bowl.obj" id="2_gps6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mabh8"]
+albedo_color = Color(0.345098, 0.568627, 1, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3sfjs"]
 height = 0.641116
@@ -17,6 +20,7 @@ OVERIDE_ROOM_GRAVITY = true
 [node name="bowl" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0937005, 0, 0.284992, 0, 0.3, 0, -0.284992, 0, -0.0937005, 1.98962, -0.0220872, -0.539433)
 mesh = ExtResource("2_gps6x")
+surface_material_override/0 = SubResource("StandardMaterial3D_mabh8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145277, 0.299645, 0.0418563)

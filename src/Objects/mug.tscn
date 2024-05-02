@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://vluo43rnwxqr"]
+[gd_scene load_steps=5 format=3 uid="uid://vluo43rnwxqr"]
 
 [ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_vfc8t"]
 [ext_resource type="ArrayMesh" uid="uid://bbp5dauh7oqc3" path="res://assets/Models/Props/prop_mug.obj" id="2_22fjg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qgvu"]
+albedo_color = Color(0.941176, 0.203922, 0.223529, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cuh1q"]
 height = 0.637556
@@ -17,6 +20,7 @@ OVERIDE_ROOM_GRAVITY = true
 [node name="Mug" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0937005, 0, 0.284992, 0, 0.3, 0, -0.284992, 0, -0.0937005, 0.836056, -0.0220872, -0.241265)
 mesh = ExtResource("2_22fjg")
+surface_material_override/0 = SubResource("StandardMaterial3D_8qgvu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0411096, 0.282882, 0.0278571)

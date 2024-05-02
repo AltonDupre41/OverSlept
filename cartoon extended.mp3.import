@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mbml6ru6bdae"
+path="res://.godot/imported/cartoon extended.mp3-1de635cc2e8c90f66ff3fadc6aa71b53.mp3str"
+
+[deps]
+
+source_file="res://cartoon extended.mp3"
+dest_files=["res://.godot/imported/cartoon extended.mp3-1de635cc2e8c90f66ff3fadc6aa71b53.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
