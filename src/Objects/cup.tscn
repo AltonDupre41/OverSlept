@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://7lde7gee78ul"]
+
+[ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_fie86"]
+[ext_resource type="ArrayMesh" uid="uid://iqp5rg47vfbl" path="res://assets/Models/Props/prop_cup.obj" id="2_iddu5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cuh1q"]
+height = 0.33292
+radius = 0.591867
+
+[node name="cup" type="RigidBody3D" groups=["FloorDetectable"]]
+collision_layer = 2
+collision_mask = 7
+mass = 5.84
+script = ExtResource("1_fie86")
+OVERIDE_ROOM_GRAVITY = true
+
+[node name="cup" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0937005, 0, 0.284992, 0, 0.3, 0, -0.284992, 0, -0.0937005, 1.10847, -0.0220872, 0.522738)
+mesh = ExtResource("2_iddu5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0849954, 0.525064, 0.0278571)
+shape = SubResource("CylinderShape3D_cuh1q")
+
+[connection signal="hit_ground" from="." to="." method="_on_object_hit_ground"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ya6fo34xrc82"]
+
+[ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_pnky2"]
+[ext_resource type="ArrayMesh" uid="uid://bx1c2lffesxo0" path="res://assets/Models/Props/prop_donut.obj" id="2_chjba"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cuh1q"]
+height = 0.33292
+radius = 0.591867
+
+[node name="donut" type="RigidBody3D" groups=["FloorDetectable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149443, 0, 0)
+collision_layer = 2
+collision_mask = 7
+mass = 5.84
+script = ExtResource("1_pnky2")
+OVERIDE_ROOM_GRAVITY = true
+
+[node name="donut" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0937005, 0, 0.284992, 0, 0.3, 0, -0.284992, 0, -0.0937005, -1.67254, -0.0220872, -0.756873)
+mesh = ExtResource("2_chjba")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155058, 0.121447, -0.0119083)
+shape = SubResource("CylinderShape3D_cuh1q")
+
+[connection signal="hit_ground" from="." to="." method="_on_object_hit_ground"]

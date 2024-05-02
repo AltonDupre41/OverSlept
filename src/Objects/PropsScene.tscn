@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bshqc3bbypd8k"]
+
+[ext_resource type="PackedScene" uid="uid://33epgxbdi5rj" path="res://src/Objects/bowl.tscn" id="1_jcj5c"]
+[ext_resource type="PackedScene" uid="uid://dypcxsc0yfyw6" path="res://src/Objects/banana.tscn" id="2_efut3"]
+[ext_resource type="PackedScene" uid="uid://bkorlwmmoj0ks" path="res://src/Objects/prop_apple.tscn" id="3_xyo6d"]
+[ext_resource type="PackedScene" uid="uid://7lde7gee78ul" path="res://src/Objects/cup.tscn" id="4_6e7gx"]
+
+[node name="PropsScene" type="Node3D"]
+
+[node name="bowl" parent="." instance=ExtResource("1_jcj5c")]
+
+[node name="banana" parent="." instance=ExtResource("2_efut3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.22389)
+
+[node name="apple" parent="." instance=ExtResource("3_xyo6d")]
+transform = Transform3D(1, 0, 0, 0, 0.999927, 0.0120774, 0, -0.0120774, 0.999927, 1.97069, 0, 2.11046)
+
+[node name="cup" parent="." instance=ExtResource("4_6e7gx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94273, 0, 0)

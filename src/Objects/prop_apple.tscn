@@ -5,12 +5,11 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f8mii"]
 
-[node name="apple" type="RigidBody3D" node_paths=PackedStringArray("floorDetectNode") groups=["FloorDetectable"]]
+[node name="apple" type="RigidBody3D" groups=["FloorDetectable"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_40vh0")
 OVERIDE_ROOM_GRAVITY = true
-floorDetectNode = NodePath("")
 
 [node name="apple" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.20399, -0.0624573, -1.05229)
