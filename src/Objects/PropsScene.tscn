@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bshqc3bbypd8k"]
+[gd_scene load_steps=7 format=3 uid="uid://bshqc3bbypd8k"]
 
 [ext_resource type="PackedScene" uid="uid://33epgxbdi5rj" path="res://src/Objects/bowl.tscn" id="1_jcj5c"]
 [ext_resource type="PackedScene" uid="uid://dypcxsc0yfyw6" path="res://src/Objects/banana.tscn" id="2_efut3"]
 [ext_resource type="PackedScene" uid="uid://bkorlwmmoj0ks" path="res://src/Objects/prop_apple.tscn" id="3_xyo6d"]
 [ext_resource type="PackedScene" uid="uid://7lde7gee78ul" path="res://src/Objects/cup.tscn" id="4_6e7gx"]
+[ext_resource type="PackedScene" uid="uid://vluo43rnwxqr" path="res://src/Objects/mug.tscn" id="5_2fkbf"]
+[ext_resource type="PackedScene" uid="uid://ya6fo34xrc82" path="res://src/Objects/donut.tscn" id="6_pfkqr"]
 
 [node name="PropsScene" type="Node3D"]
 
@@ -17,3 +19,9 @@ transform = Transform3D(1, 0, 0, 0, 0.999927, 0.0120774, 0, -0.0120774, 0.999927
 
 [node name="cup" parent="." instance=ExtResource("4_6e7gx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94273, 0, 0)
+
+[node name="Mug" parent="." instance=ExtResource("5_2fkbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2755, 0, 3.98256)
+
+[node name="donut" parent="." instance=ExtResource("6_pfkqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71841, 0.529868, 3.67304)

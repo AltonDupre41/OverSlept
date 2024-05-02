@@ -4,8 +4,8 @@
 [ext_resource type="ArrayMesh" uid="uid://iqp5rg47vfbl" path="res://assets/Models/Props/prop_cup.obj" id="2_iddu5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cuh1q"]
-height = 0.33292
-radius = 0.591867
+height = 0.600158
+radius = 0.421308
 
 [node name="cup" type="RigidBody3D" groups=["FloorDetectable"]]
 collision_layer = 2

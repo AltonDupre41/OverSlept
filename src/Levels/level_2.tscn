@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://d1pe0j77nrvll"]
+[gd_scene load_steps=34 format=3 uid="uid://d1pe0j77nrvll"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_itewp"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_6ayba"]
 [ext_resource type="PackedScene" uid="uid://b3g4bm1iuajhf" path="res://src/Objects/chair.tscn" id="2_i0rqn"]
+[ext_resource type="PackedScene" uid="uid://vluo43rnwxqr" path="res://src/Objects/mug.tscn" id="2_ttrbt"]
 [ext_resource type="PackedScene" uid="uid://c0glcf0bx7ffe" path="res://src/Objects/table_object.tscn" id="3_3ahmq"]
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="3_dcu2s"]
 [ext_resource type="PackedScene" uid="uid://bkorlwmmoj0ks" path="res://src/Objects/prop_apple.tscn" id="4_faq2q"]
@@ -197,6 +198,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14582, 3.87204, 0.212778)
 
 [node name="donut" parent="Objects" instance=ExtResource("8_67o5y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73686, 4.27622, 5.57573)
+
+[node name="Mug" parent="Objects" instance=ExtResource("2_ttrbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.383453, 4.05433, 3.24218)
 
 [node name="Tasks" type="Node3D" parent="."]
 
