@@ -136,6 +136,7 @@ glow_enabled = true
 [node name="level_2" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_itewp")
+lowscore = 5
 level_name = "KITCHEN"
 
 [node name="Room" type="Node3D" parent="."]

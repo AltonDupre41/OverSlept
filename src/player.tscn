@@ -1,12 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds1k1qkuo2klt"]
+[gd_scene load_steps=14 format=3 uid="uid://ds1k1qkuo2klt"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_hahoo"]
 [ext_resource type="Script" path="res://src/Tail.gd" id="2_w0xh6"]
 [ext_resource type="PackedScene" uid="uid://tik1d4x7xnoe" path="res://assets/Models/LizWithTail.glb" id="2_x3oc2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lic2g"]
-radius = 1.0
-height = 4.5
+radius = 1.10697
+height = 4.98619
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4rge"]
 resource_name = "standardSurface1"
@@ -185,6 +185,10 @@ bind/48/name = &""
 bind/48/bone = -1
 bind/48/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uiiya"]
+radius = 1.23645
+height = 4.98619
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiyvb"]
 albedo_color = Color(0.360784, 1, 1, 1)
 
@@ -205,15 +209,19 @@ height = 2.0
 [node name="player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 4
 collision_mask = 3
+floor_constant_speed = true
 script = ExtResource("1_hahoo")
-push_FORCE = 1.0
+DEACCEL = 2.0
+push_FORCE = 0.01
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lic2g")
 
 [node name="Mesh" type="CharacterBody3D" parent="."]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh"]
+shape = SubResource("CapsuleShape3D_lic2g")
 
 [node name="LizWithTail" parent="Mesh" instance=ExtResource("2_x3oc2")]
 transform = Transform3D(-6.55671e-06, 0, 150, 0, 150, 0, -150, 0, -6.55671e-06, -1.55103, -0.190182, 0.0311007)
@@ -236,7 +244,7 @@ mesh = SubResource("ArrayMesh_er0ms")
 skin = SubResource("Skin_scwpl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh"]
-shape = SubResource("CapsuleShape3D_lic2g")
+shape = SubResource("CapsuleShape3D_uiiya")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
 visible = false

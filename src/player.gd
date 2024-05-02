@@ -75,10 +75,11 @@ func process_input(delta,input):
 
 #processing pushing objects
 func process_collision(input):
-	for object in get_slide_collision_count():
-		var col = get_slide_collision(object)
+	for object in $Mesh.get_slide_collision_count():
+		var col = $Mesh.get_slide_collision(object)
 		if col.get_collider() is RigidBody3D && input != Vector2.ZERO:
 			col.get_collider().apply_central_impulse(-col.get_normal() * push_FORCE)
+			
 
 func process_turn_input(delta):
 	match get_tree().root.get_child(0).movementType:
