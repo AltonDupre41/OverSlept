@@ -31,6 +31,7 @@ func _ready():
 	else:
 		for task in $Tasks.get_children():
 			task.monitoring = false
+			task.hide()
 		stopwatch = true
 		$Stopwatch.show()
 		time = 0  # Reset time on level start

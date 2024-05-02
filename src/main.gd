@@ -23,8 +23,8 @@ var gamestate_scene: PackedScene
 var GAMESTATE
 
 func _input(event):
-	if Input.is_action_just_pressed("start") && get_child(0).name.begins_with("Level") && !get_child(0).level_complete:
-		get_child(0).pause(!get_child(0).paused)
+	if Input.is_action_just_pressed("start") && get_child(1).name.begins_with("Level") && !get_child(1).level_complete:
+		get_child(1).pause(!get_child(1).paused)
 
 func changeState(path,rampage = false):
 	if get_child_count() > 0: remove_child(GAMESTATE)

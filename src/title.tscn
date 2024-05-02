@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://da6gtq31iq5dy"]
+[gd_scene load_steps=8 format=3 uid="uid://da6gtq31iq5dy"]
 
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="1_6isi0"]
 [ext_resource type="Script" path="res://src/title.gd" id="1_dlcvb"]
+
+[sub_resource type="SystemFont" id="SystemFont_c0o8w"]
+
+[sub_resource type="SystemFont" id="SystemFont_gi6im"]
+
+[sub_resource type="SystemFont" id="SystemFont_x0ylh"]
+
+[sub_resource type="SystemFont" id="SystemFont_7gy0j"]
+
+[sub_resource type="SystemFont" id="SystemFont_x6eha"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -26,6 +36,35 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_6isi0")
 text = "OverSlept"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.651
+anchor_top = 0.738
+anchor_right = 2.452
+anchor_bottom = 4.308
+offset_left = -32.092
+offset_top = -7.97
+offset_right = -31.9841
+offset_bottom = -0.0200195
+theme_override_fonts/normal_font = SubResource("SystemFont_c0o8w")
+theme_override_fonts/bold_font = SubResource("SystemFont_gi6im")
+theme_override_fonts/italics_font = SubResource("SystemFont_x0ylh")
+theme_override_fonts/bold_italics_font = SubResource("SystemFont_7gy0j")
+theme_override_fonts/mono_font = SubResource("SystemFont_x6eha")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+text = "Credits:
+Alton Dupre - Bug Tester/Lead Programer
+Walker Noble - 
+Emory Kiser -
+Troy Williams -
+Preston -
+Simon Carter - Conceptual Designer/Level Designer"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
