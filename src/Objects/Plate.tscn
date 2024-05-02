@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://k0hbvl0w5k6c"]
+
+[ext_resource type="Script" path="res://src/testScenes/phys_cube.gd" id="1_np8vw"]
+[ext_resource type="ArrayMesh" uid="uid://pstjdrjepkwb" path="res://assets/Models/Props/prop_plate.obj" id="2_5ft0o"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cuh1q"]
+height = 0.161348
+radius = 0.421308
+
+[node name="Plate" type="RigidBody3D" groups=["FloorDetectable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149443, 0, 0)
+collision_layer = 2
+collision_mask = 7
+mass = 5.84
+script = ExtResource("1_np8vw")
+OVERIDE_ROOM_GRAVITY = true
+
+[node name="Plate" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0937005, 0, 0.284992, 0, 0.3, 0, -0.284992, 0, -0.0937005, 0.15219, -0.0220872, 0.0151069)
+mesh = ExtResource("2_5ft0o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155405, 0.0249654, -0.0119083)
+shape = SubResource("CylinderShape3D_cuh1q")
+
+[connection signal="hit_ground" from="." to="." method="_on_object_hit_ground"]
