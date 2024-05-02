@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkoax3g0wwpef"]
+
+[ext_resource type="PackedScene" uid="uid://c7cyc46s3tjna" path="res://assets/Models/kitchen_and_stairs.dae" id="1_ywrnw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="kitchen_and_stairs" parent="." instance=ExtResource("1_ywrnw")]
+transform = Transform3D(150, 0, 0, 0, 150, 0, 0, 0, 150, 21.6598, -10.653, 21.6859)

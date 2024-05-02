@@ -33,12 +33,12 @@ func _ready():
 func _physics_process(delta):
 	previous_rot = $Mesh.rotation
 	var input_vector = Input.get_vector("left", "right", "up", "down")
-	test_input()
+	#test_input()
 	process_input(delta, input_vector)
 	process_turn_input(delta)
 	process_collision(input_vector)
-	if input_vector.length() > 0 && !$Mesh/hopeThisWorks/QuickRigCharacter_Reference/AnimationPlayer.is_playing():
-		$Mesh/hopeThisWorks/QuickRigCharacter_Reference/AnimationPlayer.play("Walk")
+	#if input_vector.length() > 0 && !$Mesh/hopeThisWorks/QuickRigCharacter_Reference/AnimationPlayer.is_playing():
+		#$Mesh/hopeThisWorks/QuickRigCharacter_Reference/AnimationPlayer.play("Walk")
 
 #Handles movement input
 func process_input(delta,input):

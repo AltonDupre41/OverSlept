@@ -1,48 +1,135 @@
-[gd_scene load_steps=27 format=3 uid="uid://d3x7h7jtx50h3"]
+[gd_scene load_steps=35 format=3 uid="uid://d3x7h7jtx50h3"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_tvk1w"]
-[ext_resource type="PackedScene" uid="uid://16dfbpicy2ia" path="res://src/Objects/pole.tscn" id="2_q6kic"]
+[ext_resource type="PackedScene" uid="uid://daxg3a21hb5xy" path="res://assets/Models/bedroom_scene_overslept.fbx" id="2_5gabq"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_qakhs"]
-[ext_resource type="PackedScene" uid="uid://dwq8dsh0yq1p7" path="res://src/Objects/proto_object.tscn" id="3_e40ih"]
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="5_7iu2a"]
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="6_yb73n"]
 [ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="7_hefr7"]
 [ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="8_mg18k"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eufd"]
-albedo_color = Color(0.729412, 1, 0.6, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dei8j"]
+sky_horizon_color = Color(0.64723, 0.724284, 0.691422, 1)
+ground_bottom_color = Color(0.203922, 0.443137, 0.215686, 1)
+ground_horizon_color = Color(0.64723, 0.724284, 0.691422, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4lisc"]
-material = SubResource("StandardMaterial3D_0eufd")
-size = Vector3(24, 1, 24)
+[sub_resource type="Sky" id="Sky_1oqdj"]
+sky_material = SubResource("ProceduralSkyMaterial_dei8j")
+
+[sub_resource type="Environment" id="Environment_cl0sp"]
+background_mode = 2
+sky = SubResource("Sky_1oqdj")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgsux"]
+resource_name = "lambert16"
+transparency = 1
+albedo_color = Color(0.482353, 0.431373, 0.392157, 0.615686)
+metallic = 0.2
+roughness = 0.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_muqsv"]
+_surfaces = [{
+"aabb": AABB(-0.00420234, -0.005, -0.005, 0.00920234, 0.01, 0.01),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 3, 0, 0, 0, 4, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 4, 0, 0, 0, 3, 0, 4, 0, 5, 0, 0, 0, 5, 0, 6, 0, 2, 0, 5, 0, 2, 0, 0, 0, 1, 0, 2, 0, 6, 0, 6, 0, 7, 0, 1, 0, 7, 0, 4, 0, 3, 0, 7, 0, 3, 0, 1, 0),
+"name": "lambert16",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j2nbu"]
+resource_name = "Root Scene_pCube30"
+_surfaces = [{
+"aabb": AABB(-0.00420234, -0.005, -0.005, 0.00920234, 0.01, 0.01),
+"attribute_data": PackedByteArray(227, 111, 43, 106, 235, 189, 28, 32, 227, 111, 28, 32, 235, 189, 43, 106, 28, 32, 44, 106, 36, 110, 44, 106, 36, 110, 28, 32, 28, 32, 28, 32, 149, 176, 6, 107, 140, 98, 6, 107, 140, 98, 21, 181, 149, 176, 21, 181, 255, 255, 5, 107, 246, 177, 21, 181, 255, 255, 21, 181, 246, 177, 5, 107, 227, 111, 239, 181, 235, 189, 255, 255, 235, 189, 239, 181, 227, 111, 255, 255, 37, 110, 239, 181, 28, 32, 255, 255, 37, 110, 255, 255, 28, 32, 239, 181),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 3, 0, 0, 0, 4, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 8, 0, 10, 0, 9, 0, 8, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 12, 0, 13, 0, 15, 0, 16, 0, 18, 0, 17, 0, 17, 0, 19, 0, 16, 0, 20, 0, 22, 0, 21, 0, 20, 0, 21, 0, 23, 0),
+"material": SubResource("StandardMaterial3D_bgsux"),
+"name": "lambert16",
+"primitive": 3,
+"uv_scale": Vector4(7.56618, 7.97211, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 255, 255, 255, 255, 255, 191, 0, 0, 255, 255, 0, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 84, 213, 255, 255, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 84, 213, 255, 255, 255, 255, 255, 255, 84, 213, 255, 255, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 127, 255, 255, 0, 0, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_muqsv")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iwxho"]
+_surfaces = [{
+"aabb": AABB(-0.00420234, -0.005, -0.005, 0.00920234, 0.01, 0.01),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 3, 0, 0, 0, 4, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 4, 0, 0, 0, 3, 0, 4, 0, 5, 0, 0, 0, 5, 0, 2, 0, 0, 0, 5, 0, 6, 0, 2, 0, 1, 0, 2, 0, 6, 0, 6, 0, 7, 0, 1, 0, 7, 0, 3, 0, 1, 0, 7, 0, 4, 0, 3, 0),
+"name": "lambert16",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w3kei"]
+resource_name = "Root Scene_pCube31"
+_surfaces = [{
+"aabb": AABB(-0.00420234, -0.005, -0.005, 0.00920234, 0.01, 0.01),
+"attribute_data": PackedByteArray(227, 111, 43, 106, 235, 189, 28, 32, 227, 111, 28, 32, 235, 189, 43, 106, 28, 32, 44, 106, 36, 110, 44, 106, 36, 110, 28, 32, 28, 32, 28, 32, 149, 176, 6, 107, 140, 98, 6, 107, 140, 98, 21, 181, 149, 176, 21, 181, 255, 255, 5, 107, 246, 177, 5, 107, 246, 177, 21, 181, 255, 255, 21, 181, 227, 111, 239, 181, 235, 189, 255, 255, 235, 189, 239, 181, 227, 111, 255, 255, 37, 110, 239, 181, 28, 32, 239, 181, 28, 32, 255, 255, 37, 110, 255, 255),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 3, 0, 0, 0, 4, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 8, 0, 10, 0, 9, 0, 8, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 12, 0, 15, 0, 14, 0, 16, 0, 18, 0, 17, 0, 17, 0, 19, 0, 16, 0, 20, 0, 22, 0, 21, 0, 20, 0, 23, 0, 22, 0),
+"material": SubResource("StandardMaterial3D_bgsux"),
+"name": "lambert16",
+"primitive": 3,
+"uv_scale": Vector4(7.56618, 7.97211, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 255, 255, 255, 255, 255, 191, 0, 0, 255, 255, 0, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 84, 213, 255, 255, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 84, 213, 255, 255, 255, 255, 255, 255, 84, 213, 255, 255, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 127, 255, 255, 0, 0, 255, 255, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_iwxho")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cpbub"]
+size = Vector3(26.2062, 1.41455, 31.7204)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kh7a2"]
 data = PackedVector3Array(-12, 0.5, 12, 12, 0.5, 12, -12, -0.5, 12, 12, 0.5, 12, 12, -0.5, 12, -12, -0.5, 12, 12, 0.5, -12, -12, 0.5, -12, 12, -0.5, -12, -12, 0.5, -12, -12, -0.5, -12, 12, -0.5, -12, 12, 0.5, 12, 12, 0.5, -12, 12, -0.5, 12, 12, 0.5, -12, 12, -0.5, -12, 12, -0.5, 12, -12, 0.5, -12, -12, 0.5, 12, -12, -0.5, -12, -12, 0.5, 12, -12, -0.5, 12, -12, -0.5, -12, 12, 0.5, 12, -12, 0.5, 12, 12, 0.5, -12, -12, 0.5, 12, -12, 0.5, -12, 12, 0.5, -12, -12, -0.5, 12, 12, -0.5, 12, -12, -0.5, -12, 12, -0.5, 12, 12, -0.5, -12, -12, -0.5, -12)
 
-[sub_resource type="BoxMesh" id="BoxMesh_g6dhq"]
-size = Vector3(25, 8, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cbkpq"]
+size = Vector3(28.6312, 25.7158, 0.75)
 
-[sub_resource type="BoxMesh" id="BoxMesh_b018y"]
-size = Vector3(20, 8, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6yycd"]
+size = Vector3(34.9342, 25.7158, 0.75)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfybh"]
-albedo_color = Color(0.576471, 0.368627, 0.196078, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_44gic"]
+size = Vector3(28.6312, 25.7158, 0.75)
 
-[sub_resource type="BoxMesh" id="BoxMesh_l2wrq"]
-material = SubResource("StandardMaterial3D_qfybh")
-size = Vector3(5, 6, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_sq4ii"]
+size = Vector3(8.70953, 6.59235, 7.5766)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xejm4"]
-points = PackedVector3Array(12.5, 8, 0.5, 12.5, 8, -0.5, -12.5, 8, 0.5, 12.5, -8, 0.5, 12.5, -8, -0.5, -12.5, 8, -0.5, -12.5, -8, 0.5, -12.5, -8, -0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_5nqqj"]
+size = Vector3(2.10234, 2.49658, 5.65594)
 
-[sub_resource type="BoxMesh" id="BoxMesh_a3mo1"]
-size = Vector3(25, 16, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cnfrv"]
+height = 2.12844
+radius = 1.00609
 
-[sub_resource type="BoxMesh" id="BoxMesh_3kq4k"]
-size = Vector3(4, 2, 8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_strf7"]
+size = Vector3(1.76758, 2.71811, 2.93024)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1rvtk"]
-points = PackedVector3Array(2, 1, 4, 2, -1, 4, 2, 1, -4, -2, 1, 4, -2, -1, 4, 2, -1, -4, -2, 1, -4, -2, -1, -4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6w4l"]
+size = Vector3(2.25833, 2.81293, 4.8338)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_newkg"]
+height = 2.3512
+radius = 3.47051
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5fep7"]
+size = Vector3(7.46216, 6.48438, 1.97009)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tgxd"]
 transparency = 1
@@ -99,131 +186,148 @@ process_mode = 3
 script = ExtResource("1_tvk1w")
 level_name = "BEDROOM"
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cl0sp")
+
 [node name="Room" type="Node3D" parent="."]
+
+[node name="Root Scene" parent="Room" instance=ExtResource("2_5gabq")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+
+[node name="pCube20" parent="Room/Root Scene/RootNode" index="65"]
+transform = Transform3D(1, 0, 0, 0, -1, -1.22465e-16, 0, 1.22465e-16, -1, -0.222284, 0.107349, -0.393986)
+
+[node name="pCube30" parent="Room/Root Scene/RootNode" index="81"]
+transform = Transform3D(-110.06, 3.85365e-15, -1.23184e-14, 1.34785e-14, 0, -100.587, -2.57862e-13, -1.64481, 0, -0.118031, 0.496613, 0.583512)
+visible = false
+mesh = SubResource("ArrayMesh_j2nbu")
+
+[node name="pCube31" parent="Room/Root Scene/RootNode" index="82"]
+transform = Transform3D(0, 1.64481, 0, 0, 0, -100.587, -135.416, 0, 0, 0.343737, 0.498157, 0.00783686)
+visible = false
+mesh = SubResource("ArrayMesh_w3kei")
 
 [node name="Floor" type="StaticBody3D" parent="Room" groups=["ground"]]
 collision_mask = 6
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = SubResource("BoxMesh_4lisc")
-skeleton = NodePath("")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("ConcavePolygonShape3D_kh7a2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33094, -0.498779, -1.17722)
+shape = SubResource("BoxShape3D_cpbub")
 
 [node name="Floor2" type="StaticBody3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72595, 23.8529, 0.0392742)
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0390177, -0.557476, -0.00193739)
 shape = SubResource("ConcavePolygonShape3D_kh7a2")
 
 [node name="Walls" type="Node3D" parent="Room"]
 
 [node name="Wall1" type="StaticBody3D" parent="Room/Walls"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Walls/Wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.9, -12.5)
-mesh = SubResource("BoxMesh_g6dhq")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Room/Walls/Wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 2.6, -12.5)
-mesh = SubResource("BoxMesh_b018y")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Room/Walls/Wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1, 2.9, -12.5)
-mesh = SubResource("BoxMesh_l2wrq")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
-shape = SubResource("ConvexPolygonShape3D_xejm4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25874, 12.3579, -16.6729)
+shape = SubResource("BoxShape3D_cbkpq")
 
 [node name="Wall2" type="StaticBody3D" parent="Room/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room/Walls/Wall2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
-mesh = SubResource("BoxMesh_a3mo1")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
-shape = SubResource("ConvexPolygonShape3D_xejm4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231193, 12.3579, -16.6729)
+shape = SubResource("BoxShape3D_6yycd")
 
 [node name="Wall3" type="StaticBody3D" parent="Room/Walls"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
-shape = SubResource("ConvexPolygonShape3D_xejm4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15331, 12.3579, -14.3249)
+shape = SubResource("BoxShape3D_cbkpq")
 
 [node name="Wall4" type="StaticBody3D" parent="Room/Walls"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Walls/Wall4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
-shape = SubResource("ConvexPolygonShape3D_xejm4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.428818, 12.3579, -8.85405)
+shape = SubResource("BoxShape3D_44gic")
+
+[node name="RoomCol" type="Node3D" parent="Room"]
+
+[node name="Bed" type="StaticBody3D" parent="Room/RoomCol"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/Bed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4347, 2.79617, 3.45377)
+shape = SubResource("BoxShape3D_sq4ii")
+
+[node name="BedTable" type="StaticBody3D" parent="Room/RoomCol"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/BedTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00909, 1.60791, 3.41715)
+shape = SubResource("BoxShape3D_5nqqj")
+
+[node name="BedTable2" type="StaticBody3D" parent="Room/RoomCol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00909, 1.60791, 3.41715)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/BedTable2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30574, -0.796046, 5.14623)
+shape = SubResource("CylinderShape3D_cnfrv")
+
+[node name="BedTable3" type="StaticBody3D" parent="Room/RoomCol"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/BedTable3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3294, 1.44488, -2.30575)
+shape = SubResource("BoxShape3D_strf7")
+
+[node name="Trash" type="StaticBody3D" parent="Room/RoomCol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.47177, 1.60791, 7.4967)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/Trash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30574, -0.796046, 5.14623)
+shape = SubResource("CylinderShape3D_cnfrv")
+
+[node name="Table" type="StaticBody3D" parent="Room/RoomCol"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58086, 0.906464, 3.69382)
+shape = SubResource("BoxShape3D_t6w4l")
+
+[node name="Table2" type="StaticBody3D" parent="Room/RoomCol"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/Table2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57573, 0, -9.90673)
+shape = SubResource("CylinderShape3D_newkg")
+
+[node name="InWall" type="StaticBody3D" parent="Room/RoomCol"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/InWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.63403, 2.74219, -7.58)
+shape = SubResource("BoxShape3D_5fep7")
+
+[node name="InWall2" type="StaticBody3D" parent="Room/RoomCol"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/InWall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6621, 2.74219, -7.58)
+shape = SubResource("BoxShape3D_5fep7")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Room"]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 3.84048, 16.783, -2.4702)
+light_color = Color(0.898039, 0.898039, 0.898039, 1)
+light_bake_mode = 1
+shadow_enabled = true
+sky_mode = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Room"]
-transform = Transform3D(1, 0, -5.63646e-16, 1.77636e-15, 0.948324, 0.317305, 0, -0.317305, 0.948324, 12, 5, -12)
+transform = Transform3D(-0.978224, 0.0658576, -0.196828, 1.77636e-15, 0.948324, 0.317305, 0.207553, 0.310395, -0.927673, 1.04031, 20.3427, -28.1842)
+light_color = Color(1, 1, 0.584314, 1)
 light_energy = 0.5
 shadow_enabled = true
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="Cube1" type="StaticBody3D" parent="Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6, 1.3, -3)
-collision_layer = 2
-collision_mask = 7
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/Cube1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.3, 0)
-mesh = SubResource("BoxMesh_3kq4k")
-skeleton = NodePath("../../../UI/Score")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Cube1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.3, 0)
-shape = SubResource("ConvexPolygonShape3D_1rvtk")
-
-[node name="Pole" parent="Objects" instance=ExtResource("2_q6kic")]
-
-[node name="PhysCube" parent="Objects" instance=ExtResource("3_e40ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 5, 5.6)
-
-[node name="Pole2" parent="Objects" instance=ExtResource("2_q6kic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -6.3)
-
-[node name="PhysCube2" parent="Objects" instance=ExtResource("3_e40ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 5, -0.7)
-
-[node name="Pole3" parent="Objects" instance=ExtResource("2_q6kic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6.3)
-
-[node name="PhysCube3" parent="Objects" instance=ExtResource("3_e40ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, -0.7)
-
-[node name="Pole4" parent="Objects" instance=ExtResource("2_q6kic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0, -10.6)
-
-[node name="PhysCube4" parent="Objects" instance=ExtResource("3_e40ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 5, -5)
-
-[node name="PhysCube5" parent="Objects" instance=ExtResource("3_e40ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2, 3.1, -0.7)
-
-[node name="PhysCube6" parent="Objects" instance=ExtResource("3_e40ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2, 3.1, -3.3)
-
-[node name="PhysCube7" parent="Objects" instance=ExtResource("3_e40ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2, 3.1, -5.8)
-
 [node name="Tasks" type="Node3D" parent="."]
 
 [node name="Task1" type="Area3D" parent="Tasks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.503, 0.5, 2.901)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80439, 0.5, 3.7287)
 collision_layer = 8
 collision_mask = 4
 
@@ -234,8 +338,7 @@ mesh = SubResource("BoxMesh_1a7bv")
 shape = SubResource("ConvexPolygonShape3D_i25d5")
 
 [node name="Task2" type="Area3D" parent="Tasks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7, 0.5, -2.9)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.354, 0.5, -2.9)
 collision_layer = 8
 collision_mask = 4
 
@@ -246,8 +349,7 @@ mesh = SubResource("BoxMesh_1a7bv")
 shape = SubResource("ConvexPolygonShape3D_i25d5")
 
 [node name="Task3" type="Area3D" parent="Tasks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7, 0.5, -9.8)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.244, 0.5, -13.865)
 collision_layer = 8
 collision_mask = 4
 
@@ -258,14 +360,14 @@ mesh = SubResource("BoxMesh_1a7bv")
 shape = SubResource("ConvexPolygonShape3D_i25d5")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.298836, 0.640857, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640857, 25, 18, 25)
+transform = Transform3D(0.707107, -0.298836, 0.640857, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640857, 10, 14, 13)
 projection = 1
-size = 15.0
+size = 24.0
 near = 1.0
 far = 100.0
 
 [node name="player" parent="." instance=ExtResource("2_qakhs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, 2.65538, 8.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8124, 2.65538, 8.7)
 collision_mask = 11
 OVERIDE_ROOM_GRAVITY = true
 ACCEL = 3.0
@@ -406,13 +508,6 @@ text = "Paused"
 position = Vector2(112.5, 272)
 texture = ExtResource("8_mg18k")
 
-[connection signal="hit_ground" from="Objects/PhysCube" to="." method="_on_object_hit_ground"]
-[connection signal="hit_ground" from="Objects/PhysCube2" to="." method="_on_object_hit_ground"]
-[connection signal="hit_ground" from="Objects/PhysCube3" to="." method="_on_object_hit_ground"]
-[connection signal="hit_ground" from="Objects/PhysCube4" to="." method="_on_object_hit_ground"]
-[connection signal="hit_ground" from="Objects/PhysCube5" to="." method="_on_object_hit_ground"]
-[connection signal="hit_ground" from="Objects/PhysCube6" to="." method="_on_object_hit_ground"]
-[connection signal="hit_ground" from="Objects/PhysCube7" to="." method="_on_object_hit_ground"]
 [connection signal="body_entered" from="Tasks/Task1" to="." method="_on_task_body_entered"]
 [connection signal="body_entered" from="Tasks/Task2" to="." method="_on_task_body_entered"]
 [connection signal="body_entered" from="Tasks/Task3" to="." method="_on_task_body_entered"]
@@ -420,3 +515,5 @@ texture = ExtResource("8_mg18k")
 [connection signal="timeout" from="UI/Score/Suspense2" to="." method="set_score"]
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="animation_finished" from="UI/CompleteAnim" to="." method="_on_complete_anim_animation_finished"]
+
+[editable path="Room/Root Scene"]

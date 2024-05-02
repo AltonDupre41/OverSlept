@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://s15wn71ulggk"]
+
+[resource]
+resource_name = "standardSurface12"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0764706

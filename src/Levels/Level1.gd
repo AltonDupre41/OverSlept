@@ -23,6 +23,7 @@ func _ready():
 	if !rampage:
 		for task in $Tasks.get_children():
 			tasks.push_back(task)
+			task.hide()
 			task.monitoring = false
 		tasks[0].show()
 		tasks[0].monitoring = true
