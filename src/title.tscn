@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://da6gtq31iq5dy"]
+[gd_scene load_steps=9 format=3 uid="uid://da6gtq31iq5dy"]
 
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="1_6isi0"]
 [ext_resource type="Script" path="res://src/title.gd" id="1_dlcvb"]
+[ext_resource type="Texture2D" uid="uid://bjnab8mp1o1qu" path="res://assets/Title.png" id="2_m2vix"]
 
 [sub_resource type="SystemFont" id="SystemFont_c0o8w"]
 
@@ -19,6 +20,11 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_dlcvb")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.6, 0.573991)
+texture = ExtResource("2_m2vix")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
