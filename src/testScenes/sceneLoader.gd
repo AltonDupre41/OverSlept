@@ -23,3 +23,5 @@ func _on_pressed(num, rampage = false):
 			get_tree().root.get_child(0).changeState("res://src/Levels/level_1.tscn",rampage)
 		1:
 			get_tree().root.get_child(0).changeState("res://src/Levels/level_2.tscn",rampage)
+		2:
+			get_tree().root.get_child(0).changeState("res://src/Levels/level_3.tscn",rampage)

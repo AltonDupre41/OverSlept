@@ -47,34 +47,34 @@ size = Vector3(1.91425, 2.67712, 11.1458)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8bac8"]
 size = Vector3(0.146034, 4.51093, 7.58502)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf45h"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2kun"]
 transparency = 1
 albedo_color = Color(0.976471, 0.392157, 0.517647, 0.74902)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pjikl"]
-material = SubResource("StandardMaterial3D_kf45h")
+material = SubResource("StandardMaterial3D_b2kun")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pacdc"]
 points = PackedVector3Array(-2, -0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, -0.5, 2, -2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7y3t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_foc8u"]
 transparency = 1
 albedo_color = Color(0.976471, 0.392157, 0.517647, 0.74902)
 
 [sub_resource type="BoxMesh" id="BoxMesh_inrrt"]
-material = SubResource("StandardMaterial3D_g7y3t")
+material = SubResource("StandardMaterial3D_foc8u")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_exe1q"]
 points = PackedVector3Array(-2, -0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, -0.5, 2, -2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxsfu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dqkg"]
 transparency = 1
 albedo_color = Color(0.976471, 0.392157, 0.517647, 0.74902)
 
 [sub_resource type="BoxMesh" id="BoxMesh_n8olg"]
-material = SubResource("StandardMaterial3D_jxsfu")
+material = SubResource("StandardMaterial3D_3dqkg")
 size = Vector3(4, 1, 4)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p461t"]
@@ -124,12 +124,12 @@ sky_horizon_color = Color(0.64723, 0.724284, 0.691422, 1)
 ground_bottom_color = Color(0.203922, 0.443137, 0.215686, 1)
 ground_horizon_color = Color(0.64723, 0.724284, 0.691422, 1)
 
-[sub_resource type="Sky" id="Sky_f5ffo"]
+[sub_resource type="Sky" id="Sky_5ib62"]
 sky_material = SubResource("ProceduralSkyMaterial_k1gir")
 
 [sub_resource type="Environment" id="Environment_x7kun"]
 background_mode = 2
-sky = SubResource("Sky_f5ffo")
+sky = SubResource("Sky_5ib62")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -137,7 +137,7 @@ glow_enabled = true
 process_mode = 3
 script = ExtResource("1_itewp")
 lowscore = 5
-level_name = "KITCHEN"
+level_name = "LIVINGROOM"
 
 [node name="Room" type="Node3D" parent="."]
 

@@ -6,6 +6,11 @@ var LEVEL_DATA = {
 		"score":0,
 		"ramscore":0
 	},
+	"LIVINGROOM":{
+		"rampage":false,
+		"score":0,
+		"ramscore":0
+	},
 	"KITCHEN":{
 		"rampage":false,
 		"score":0,

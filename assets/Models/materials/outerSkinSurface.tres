@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bwi57ugfc5a15"]
+
+[resource]
+resource_name = "outerSkinSurface"
+albedo_color = Color(1, 1, 1, 1)
+roughness = 0.0

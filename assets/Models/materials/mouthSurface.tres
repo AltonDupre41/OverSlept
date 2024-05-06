@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://delf7qosbc4ke"]
+
+[resource]
+resource_name = "mouthSurface"
+albedo_color = Color(1, 1, 1, 1)
+roughness = 0.0

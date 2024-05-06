@@ -28,14 +28,14 @@ offset_bottom = -175.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 100
-columns = 2
+columns = 3
 
 [node name="BEDROOM" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-focus_neighbor_left = NodePath("../KITCHEN")
+focus_neighbor_left = NodePath("../LIVINGROOM")
 focus_neighbor_top = NodePath("Rampage")
-focus_neighbor_right = NodePath("../KITCHEN")
+focus_neighbor_right = NodePath("../LIVINGROOM")
 focus_neighbor_bottom = NodePath("Rampage")
 action_mode = 0
 text = "Level 1"
@@ -106,6 +106,73 @@ offset_bottom = 256.0
 theme_override_fonts/font = SubResource("SystemFont_mdpac")
 theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
+
+[node name="LIVINGROOM" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+focus_neighbor_left = NodePath("../BEDROOM")
+focus_neighbor_top = NodePath("Rampage")
+focus_neighbor_right = NodePath("../BEDROOM")
+focus_neighbor_bottom = NodePath("Rampage")
+action_mode = 0
+text = "Level 2"
+
+[node name="Name" type="Label" parent="GridContainer/LIVINGROOM"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 125.0
+offset_right = 101.0
+offset_bottom = 151.0
+theme_override_fonts/font = SubResource("SystemFont_mdpac")
+theme_override_font_sizes/font_size = 18
+text = "Living Room"
+horizontal_alignment = 1
+
+[node name="Stars" type="HBoxContainer" parent="GridContainer/LIVINGROOM"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.277
+offset_left = -9.76
+offset_top = 158.0
+offset_right = 157.0
+offset_bottom = 222.0
+alignment = 1
+
+[node name="Star1" type="TextureRect" parent="GridContainer/LIVINGROOM/Stars"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star2" type="TextureRect" parent="GridContainer/LIVINGROOM/Stars"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star3" type="TextureRect" parent="GridContainer/LIVINGROOM/Stars"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_28akw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Rampage" type="Button" parent="GridContainer/LIVINGROOM"]
+visible = false
+layout_mode = 0
+offset_top = 236.0
+offset_right = 122.0
+offset_bottom = 284.0
+action_mode = 0
+text = "Rampage"
 
 [node name="KITCHEN" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(120, 120)
@@ -202,5 +269,7 @@ texture = ExtResource("4_ty53x")
 
 [connection signal="pressed" from="GridContainer/BEDROOM" to="." method="_on_pressed" binds= [0]]
 [connection signal="pressed" from="GridContainer/BEDROOM/Rampage" to="." method="_on_pressed" binds= [0, true]]
-[connection signal="pressed" from="GridContainer/KITCHEN" to="." method="_on_pressed" binds= [1]]
-[connection signal="pressed" from="GridContainer/KITCHEN/Rampage" to="." method="_on_pressed" binds= [1, true]]
+[connection signal="pressed" from="GridContainer/LIVINGROOM" to="." method="_on_pressed" binds= [1]]
+[connection signal="pressed" from="GridContainer/LIVINGROOM/Rampage" to="." method="_on_pressed" binds= [1, true]]
+[connection signal="pressed" from="GridContainer/KITCHEN" to="." method="_on_pressed" binds= [2]]
+[connection signal="pressed" from="GridContainer/KITCHEN/Rampage" to="." method="_on_pressed" binds= [2, true]]

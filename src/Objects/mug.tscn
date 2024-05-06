@@ -10,12 +10,13 @@ albedo_color = Color(0.941176, 0.203922, 0.223529, 1)
 height = 0.637556
 radius = 0.421308
 
-[node name="Mug" type="RigidBody3D" groups=["FloorDetectable"]]
+[node name="Mug" type="RigidBody3D" node_paths=PackedStringArray("floorDetectNode") groups=["FloorDetectable"]]
 collision_layer = 2
 collision_mask = 7
 mass = 5.84
 script = ExtResource("1_vfc8t")
 OVERIDE_ROOM_GRAVITY = true
+floorDetectNode = NodePath(".")
 
 [node name="Mug" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0937005, 0, 0.284992, 0, 0.3, 0, -0.284992, 0, -0.0937005, 0.836056, -0.0220872, -0.241265)

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xwqjwe4krtp7"
-path="res://.godot/imported/kitchen.fbx-4b36123b8fecb8a4ba9bfaabead49934.scn"
+uid="uid://dxrtpvn4ftk3p"
+path="res://.godot/imported/prop_small_plate.fbx-de0df7637ff29e6131f3e9f556ba7c9e.scn"
 
 [deps]
 
-source_file="res://kitchen.fbx"
-dest_files=["res://.godot/imported/kitchen.fbx-4b36123b8fecb8a4ba9bfaabead49934.scn"]
+source_file="res://assets/Models/Kitchen/Textured Kitchen Stuff/Textured Kitchen Props/prop_small_plate.fbx"
+dest_files=["res://.godot/imported/prop_small_plate.fbx-de0df7637ff29e6131f3e9f556ba7c9e.scn"]
 
 [params]
 

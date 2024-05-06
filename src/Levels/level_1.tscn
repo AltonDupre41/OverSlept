@@ -1,12 +1,18 @@
-[gd_scene load_steps=38 format=3 uid="uid://d3x7h7jtx50h3"]
+[gd_scene load_steps=44 format=3 uid="uid://d3x7h7jtx50h3"]
 
 [ext_resource type="Script" path="res://src/Levels/Level1.gd" id="1_tvk1w"]
 [ext_resource type="PackedScene" uid="uid://daxg3a21hb5xy" path="res://assets/Models/bedroom_scene_overslept.fbx" id="2_5gabq"]
 [ext_resource type="PackedScene" uid="uid://ds1k1qkuo2klt" path="res://src/player.tscn" id="2_qakhs"]
+[ext_resource type="PackedScene" uid="uid://ya6fo34xrc82" path="res://src/Objects/donut.tscn" id="3_1wkip"]
+[ext_resource type="PackedScene" uid="uid://16dfbpicy2ia" path="res://src/Objects/pole.tscn" id="4_v4e5k"]
 [ext_resource type="Theme" uid="uid://1xqkbqbq8lxr" path="res://assets/Menu_theme.tres" id="5_7iu2a"]
+[ext_resource type="PackedScene" uid="uid://7lde7gee78ul" path="res://src/Objects/cup.tscn" id="5_72epg"]
 [ext_resource type="Texture2D" uid="uid://bxfgbaijyuhh6" path="res://assets/star.png" id="6_yb73n"]
 [ext_resource type="FontFile" uid="uid://dncigif3pullv" path="res://assets/Fonts/SNAP____.TTF" id="7_hefr7"]
 [ext_resource type="Texture2D" uid="uid://dve0vloup1sru" path="res://assets/controls.png" id="8_mg18k"]
+[ext_resource type="PackedScene" uid="uid://33epgxbdi5rj" path="res://src/Objects/bowl.tscn" id="11_xj38t"]
+[ext_resource type="PackedScene" uid="uid://dypcxsc0yfyw6" path="res://src/Objects/banana.tscn" id="12_mlupc"]
+[ext_resource type="PackedScene" uid="uid://k0hbvl0w5k6c" path="res://src/Objects/Plate.tscn" id="13_r5n6h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dei8j"]
 sky_horizon_color = Color(0.64723, 0.724284, 0.691422, 1)
@@ -134,7 +140,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iwxho")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cpbub"]
-size = Vector3(26.2062, 1.41455, 31.7204)
+size = Vector3(26.2062, 1.49976, 31.7204)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kh7a2"]
 data = PackedVector3Array(-12, 0.5, 12, 12, 0.5, 12, -12, -0.5, 12, 12, 0.5, 12, 12, -0.5, 12, -12, -0.5, 12, 12, 0.5, -12, -12, 0.5, -12, 12, -0.5, -12, -12, 0.5, -12, -12, -0.5, -12, 12, -0.5, -12, 12, 0.5, 12, 12, 0.5, -12, 12, -0.5, 12, 12, 0.5, -12, 12, -0.5, -12, 12, -0.5, 12, -12, 0.5, -12, -12, 0.5, 12, -12, -0.5, -12, -12, 0.5, 12, -12, -0.5, 12, -12, -0.5, -12, 12, 0.5, 12, -12, 0.5, 12, 12, 0.5, -12, -12, 0.5, 12, -12, 0.5, -12, 12, 0.5, -12, -12, -0.5, 12, 12, -0.5, 12, -12, -0.5, -12, 12, -0.5, 12, 12, -0.5, -12, -12, -0.5, -12)
@@ -152,7 +158,7 @@ size = Vector3(28.6312, 25.7158, 0.75)
 size = Vector3(8.70953, 6.59235, 7.5766)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nqqj"]
-size = Vector3(2.10234, 2.49658, 5.65594)
+size = Vector3(2.10234, 1.10278, 5.65594)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cnfrv"]
 height = 2.12844
@@ -224,6 +230,8 @@ _data = {
 [node name="Level1" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_tvk1w")
+highscore = 3
+lowscore = 5
 level_name = "BEDROOM"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -252,7 +260,7 @@ mesh = SubResource("ArrayMesh_w3kei")
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33094, -0.498779, -1.17722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33094, -0.456176, -1.17722)
 shape = SubResource("BoxShape3D_cpbub")
 
 [node name="Floor2" type="StaticBody3D" parent="Room"]
@@ -303,7 +311,7 @@ shape = SubResource("BoxShape3D_sq4ii")
 [node name="BedTable" type="StaticBody3D" parent="Room/RoomCol"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/RoomCol/BedTable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00909, 1.60791, 3.41715)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01103, 0.943107, 3.41186)
 shape = SubResource("BoxShape3D_5nqqj")
 
 [node name="BedTable2" type="StaticBody3D" parent="Room/RoomCol"]
@@ -365,6 +373,48 @@ light_energy = 0.5
 shadow_enabled = true
 
 [node name="Objects" type="Node3D" parent="."]
+
+[node name="donut" parent="Objects" instance=ExtResource("3_1wkip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.59321, 1.76831, 3.7967)
+
+[node name="Pole" parent="Objects" instance=ExtResource("4_v4e5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67258, 0.208496, 2.54563)
+
+[node name="Pole3" parent="Objects" instance=ExtResource("4_v4e5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42909, 0.208496, 6.71774)
+
+[node name="Pole4" parent="Objects" instance=ExtResource("4_v4e5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.84844, 0.25605, -11.1359)
+
+[node name="Pole5" parent="Objects" instance=ExtResource("4_v4e5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.47905, 0.210553, -6.0793)
+
+[node name="cup" parent="Objects" instance=ExtResource("5_72epg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69815, 4.40659, 8.13973)
+
+[node name="bowl" parent="Objects" instance=ExtResource("11_xj38t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.334205, 4.30705, 12.2223)
+
+[node name="bowl2" parent="Objects" instance=ExtResource("11_xj38t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90211, 2.50744, 3.09226)
+
+[node name="cup2" parent="Objects" instance=ExtResource("5_72epg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33884, 4.41995, -0.534002)
+
+[node name="Plate" parent="Objects" instance=ExtResource("13_r5n6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719638, 4.48842, -5.52351)
+
+[node name="Plate2" parent="Objects" instance=ExtResource("13_r5n6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10249, 1.58257, -8.48078)
+
+[node name="donut2" parent="Objects" instance=ExtResource("3_1wkip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0614, 1.58257, -8.51276)
+
+[node name="cup3" parent="Objects" instance=ExtResource("5_72epg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.00738, 1.58257, -8.48604)
+
+[node name="banana2" parent="Objects" instance=ExtResource("12_mlupc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79855, 1.85423, -11.5222)
 
 [node name="Tasks" type="Node3D" parent="."]
 
@@ -550,6 +600,16 @@ text = "Paused"
 position = Vector2(112.5, 272)
 texture = ExtResource("8_mg18k")
 
+[connection signal="hit_ground" from="Objects/donut" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/cup" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/bowl" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/bowl2" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/cup2" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/Plate" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/Plate2" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/donut2" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/cup3" to="." method="_on_object_hit_ground"]
+[connection signal="hit_ground" from="Objects/banana2" to="." method="_on_object_hit_ground"]
 [connection signal="body_entered" from="Tasks/Task1" to="." method="_on_task_body_entered"]
 [connection signal="body_entered" from="Tasks/Task2" to="." method="_on_task_body_entered"]
 [connection signal="body_entered" from="Tasks/Task3" to="." method="_on_task_body_entered"]
