@@ -94,6 +94,7 @@ layout_mode = 0
 offset_top = 236.0
 offset_right = 122.0
 offset_bottom = 284.0
+focus_neighbor_top = NodePath("..")
 action_mode = 0
 text = "Rampage"
 
@@ -112,7 +113,7 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 focus_neighbor_left = NodePath("../BEDROOM")
 focus_neighbor_top = NodePath("Rampage")
-focus_neighbor_right = NodePath("../BEDROOM")
+focus_neighbor_right = NodePath("../KITCHEN")
 focus_neighbor_bottom = NodePath("Rampage")
 action_mode = 0
 text = "Level 2"
@@ -171,18 +172,18 @@ layout_mode = 0
 offset_top = 236.0
 offset_right = 122.0
 offset_bottom = 284.0
+focus_neighbor_top = NodePath("..")
 action_mode = 0
 text = "Rampage"
 
 [node name="KITCHEN" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-focus_neighbor_left = NodePath("../BEDROOM")
-focus_neighbor_top = NodePath("Rampage")
+focus_neighbor_left = NodePath("../LIVINGROOM")
 focus_neighbor_right = NodePath("../BEDROOM")
 focus_neighbor_bottom = NodePath("Rampage")
 action_mode = 0
-text = "Level 2"
+text = "Level 3"
 
 [node name="Name" type="Label" parent="GridContainer/KITCHEN"]
 layout_mode = 0
@@ -238,6 +239,7 @@ layout_mode = 0
 offset_top = 236.0
 offset_right = 122.0
 offset_bottom = 284.0
+focus_neighbor_top = NodePath("..")
 action_mode = 0
 text = "Rampage"
 
